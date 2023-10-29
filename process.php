@@ -7,38 +7,59 @@ if (isset($_POST["create"])) {
     $Gender = mysqli_real_escape_string($conn, $_POST["gender"]);
     $ContactNumber = mysqli_real_escape_string($conn, $_POST["contactnumber"]);
     $Email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $Diagnosis = mysqli_real_escape_string($conn, $_POST["Diagnosis"]);
-    $Medications = mysqli_real_escape_string($conn, $_POST["Medications"]);
+    $Diagnosis = $_POST["Diagnosis"];
+    $Medications = $_POST["Medications"];
 
-    // Use prepared statements
-    $stmt = $conn->prepare("INSERT INTO Patients (FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $FirstName, $LastName, $DateOfBirth, $Gender, $ContactNumber, $Email);
+    // Check if the patient already exists
+    $existingPatientID = 0;
+    $checkStmt = $conn->prepare("SELECT PatientID FROM Patients WHERE FirstName = ? AND LastName = ?");
+    $checkStmt->bind_param("ss", $FirstName, $LastName);
+    $checkStmt->execute();
+    $checkStmt->bind_result($existingPatientID);
+    $checkStmt->fetch();
+    $checkStmt->close();
 
-    // Start a transaction
-    $conn->begin_transaction();
-
-    if ($stmt->execute()) {
-        // Retrieve the generated PatientID
-        $patientID = $conn->insert_id;
-
-        // Insert patient succeeded, now insert medical records with the PatientID
+    if ($existingPatientID) {
+        // If the patient already exists, insert a new record in MedicalRecords with the same PatientID
         $stmt = $conn->prepare("INSERT INTO MedicalRecords (PatientID, Diagnosis, Medications) VALUES (?, ?, ?)");
-        $stmt->bind_param("iss", $patientID, $Diagnosis, $Medications);
-
+        $stmt->bind_param("iss", $existingPatientID, $Diagnosis, $Medications);
         if ($stmt->execute()) {
-            // Both inserts successful, commit the transaction
-            $conn->commit();
             session_start();
-            $_SESSION["create"] = "Patient Recorded Successfully!";
+            $_SESSION["create"] = "Medical Records Inserted Successfully!";
             header("Location:index.php");
         } else {
-            // Medical records insertion failed, roll back the transaction
-            $conn->rollback();
-            die("Something went wrong with medical records insertion.");
+            die("Something went wrong with inserting medical records.");
         }
     } else {
-        // Patient insertion failed
-        die("Something went wrong with patient insertion.");
+        // If the patient doesn't exist, insert a new patient and their MedicalRecords
+        $stmt = $conn->prepare("INSERT INTO Patients (FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $FirstName, $LastName, $DateOfBirth, $Gender, $ContactNumber, $Email);
+        // Start a transaction
+        $conn->begin_transaction();
+
+        if ($stmt->execute()) {
+            // Retrieve the generated PatientID
+            $patientID = $conn->insert_id;
+
+            // Insert patient succeeded, now insert medical records with the new PatientID
+            $stmt = $conn->prepare("INSERT INTO MedicalRecords (PatientID, Diagnosis, Medications) VALUES (?, ?, ?)");
+            $stmt->bind_param("iss", $patientID, $Diagnosis, $Medications);
+
+            if ($stmt->execute()) {
+                // Both inserts successful, commit the transaction
+                $conn->commit();
+                session_start();
+                $_SESSION["create"] = "Patient Recorded Successfully!";
+                header("Location:index.php");
+            } else {
+                // Medical records insertion failed, roll back the transaction
+                $conn->rollback();
+                die("Something went wrong with medical records insertion.");
+            }
+        } else {
+            // Patient insertion failed
+            die("Something went wrong with patient insertion.");
+        }
     }
 }
 
