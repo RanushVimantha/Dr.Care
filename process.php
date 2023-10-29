@@ -11,16 +11,19 @@ if (isset($_POST["create"])) {
     $Medications = mysqli_real_escape_string($conn, $_POST["Medications"]);
 
     // Use prepared statements
-    $stmt = $conn->prepare("INSERT INTO patients (FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Patients (FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $FirstName, $LastName, $DateOfBirth, $Gender, $ContactNumber, $Email);
-    
+
     // Start a transaction
     $conn->begin_transaction();
 
     if ($stmt->execute()) {
-        // Insert patient succeeded, now insert medical records
-        $stmt = $conn->prepare("INSERT INTO medicalrecords (PatientID, Diagnosis, Medications) VALUES (?, ?, ?)");
-        $stmt->bind_param("iss", $conn->insert_id, $Diagnosis, $Medications);
+        // Retrieve the generated PatientID
+        $patientID = $conn->insert_id;
+
+        // Insert patient succeeded, now insert medical records with the PatientID
+        $stmt = $conn->prepare("INSERT INTO MedicalRecords (PatientID, Diagnosis, Medications) VALUES (?, ?, ?)");
+        $stmt->bind_param("iss", $patientID, $Diagnosis, $Medications);
 
         if ($stmt->execute()) {
             // Both inserts successful, commit the transaction
