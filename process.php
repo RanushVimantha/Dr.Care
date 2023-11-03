@@ -101,19 +101,43 @@ if (isset($_POST["create"])) {
 // CODE FOR EDITING (HAVE TO MAKE)
 
 
-/* if (isset($_POST["edit"])) {
-    $title = mysqli_real_escape_string($conn, $_POST["title"]);
-    $type = mysqli_real_escape_string($conn, $_POST["type"]);
-    $author = mysqli_real_escape_string($conn, $_POST["author"]);
-    $description = mysqli_real_escape_string($conn, $_POST["description"]);
-    $id = mysqli_real_escape_string($conn, $_POST["id"]);
-    $sqlUpdate = "UPDATE books SET title = '$title', type = '$type', author = '$author', description = '$description' WHERE id='$id'";
-    if(mysqli_query($conn,$sqlUpdate)){
+if (isset($_POST["edit"])) {
+    $id = $_POST["id"];
+    $FirstName = mysqli_real_escape_string($conn, $_POST["firstname"]);
+    $LastName = mysqli_real_escape_string($conn, $_POST["lastname"]);
+    $DateOfBirth = date('Y-m-d', strtotime($_POST['date']));
+    $Gender = mysqli_real_escape_string($conn, $_POST["gender"]);
+    $ContactNumber = mysqli_real_escape_string($conn, $_POST["contactnumber"]);
+    $Email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $DiagnosisArray = $_POST["Diagnosis"];
+    $MedicationsArray = $_POST["Medications"];
+    $recordIDs = $_POST["recordIDs"];
+
+    // Update patient's information
+    $sqlUpdate = "UPDATE patients SET FirstName = '$FirstName', LastName = '$LastName', DateOfBirth = '$DateOfBirth', Gender = '$Gender', ContactNumber = '$ContactNumber', Email = '$Email' WHERE PatientID ='$id'";
+
+    if (mysqli_query($conn, $sqlUpdate)) {
+        // Patient information updated successfully
+
+        // Update medical records for each record
+        for ($i = 0; $i < count($DiagnosisArray); $i++) {
+            $recordID = $recordIDs[$i];
+            $Diagnosis = mysqli_real_escape_string($conn, $DiagnosisArray[$i]);
+            $Medications = mysqli_real_escape_string($conn, $MedicationsArray[$i]);
+
+            $sqlUpdateRecords = "UPDATE MedicalRecords SET Diagnosis = '$Diagnosis', Medications = '$Medications' WHERE RecordID ='$recordID'";
+
+            if (mysqli_query($conn, $sqlUpdateRecords)) {
+                // Medical records updated successfully for each record
+            } else {
+                die("Something went wrong with updating medical records: " . mysqli_error($conn));
+            }
+        }
+
         session_start();
-        $_SESSION["update"] = "Book Updated Successfully!";
+        $_SESSION["update"] = "Patient Updated Successfully!";
         header("Location:index.php");
-    }else{
-        die("Something went wrong");
+    } else {
+        die("Something went wrong with updating patient information: " . mysqli_error($conn));
     }
-} */
-?>
+}

@@ -85,7 +85,7 @@
                 <td><?php echo $data['Gender']; ?></td>
                 <td>
                     <a href="PatientView.php?id=<?php echo $data['PatientID']; ?>" class="btn btn-info">Read More</a>
-                    <a href="edit.php?id=<?php echo $data['PatientID']; ?>" class="btn btn-warning">Edit</a>
+                    <a href="PatientInfoEdit.php?id=<?php echo $data['PatientID']; ?>" class="btn btn-warning">Edit</a>
                     <a href="delete.php?id=<?php echo $data['PatientID']; ?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

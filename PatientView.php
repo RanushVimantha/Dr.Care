@@ -45,7 +45,7 @@
                     <p><?php echo $row["Email"]; ?></p>
                     <?php
 
-// Showing All the Diagnosis and Medications relavant to the Patient
+            // Showing All the Diagnosis and Medications relavant to the Patient
 
                     $sql = "SELECT * FROM MedicalRecords WHERE PatientID = $id";
                     $result = mysqli_query($conn, $sql);
