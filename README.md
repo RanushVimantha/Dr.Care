@@ -6,8 +6,8 @@ management for the insertion of patient health records and reports. The HMS aims
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
-  - [Features](#features-&-functions-explained)
+- [Features & Functions](#features-&-functions)
+  - [Features & Functions Explained](#features-&-functions-explained)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
