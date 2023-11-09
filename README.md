@@ -6,7 +6,8 @@ management for the insertion of patient health records and reports. The HMS aims
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
+- [Features & Functions](#features & functions)
+- [Features Explained](#features explained)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -33,6 +34,10 @@ Key Features and Functions of the project is listed below.
 - View Past Records 
 - Search Function 
 
+## Features & Functions Explained
+
+First, you must register as a doctor. Once you get the administrative privileges as a doctor, you can search for patient’s profile using the name or the RFID Card Number. If the patient profile does not exist, you can create a new separate profile for a patient and add their medical records and reports. Then you can update the health status of a patient in the same profile according to the on-going disease/illness. Upon identifying a patient’s disease / illness, doctor can issue a prescription regarding the medicines that the patient should take within the same system. Doctor will get a normal form to fill as the prescription. Upon creating the prescription and saving it, the system will automatically generate the details that are included in the form into an in-built prescription template. After that doctor will be
+provided with the opportunity to take a printout or send the prescription to a patient via email. All the details are stored in our database, due to that a doctor can look up to a patient’s past medical records and prescriptions whenever they want.
 
 ## Getting Started
 
