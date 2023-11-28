@@ -1,5 +1,12 @@
 <?php
-include('connect.php');
+// Linking Database.php
+require "db/DataBase.php";
+$database = new DataBase();
+$conn = $database->dbConnect();
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 if (isset($_POST["create"])) {
     $FirstName = mysqli_real_escape_string($conn, $_POST["firstname"]);
     $LastName = mysqli_real_escape_string($conn, $_POST["lastname"]);

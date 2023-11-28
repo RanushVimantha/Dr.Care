@@ -1,6 +1,12 @@
 <?php
 if (isset($_GET['id'])) {
-    include("connect.php");
+    // Linking Database.php
+    require "db/DataBase.php";
+    $database = new DataBase();
+    $conn = $database->dbConnect();
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
     $id = $_GET['id'];
 
     // Get patient details before deleting
@@ -23,7 +29,7 @@ if (isset($_GET['id'])) {
         // Now, let's handle MedicalRecords
         $select_MedicalRecordsquery = "SELECT * FROM MedicalRecords WHERE PatientID='$id'";
         $MedicalRecordsresult = mysqli_query($conn, $select_MedicalRecordsquery);
-        
+
         while ($MedicalRecords_data = mysqli_fetch_assoc($MedicalRecordsresult)) {
             // Insert MedicalRecords details into DeletedPatients table for each record
             $insert_medical_query = "INSERT INTO DeletedPatients (PatientID, RecordID, Diagnosis, Medications) 
@@ -44,4 +50,3 @@ if (isset($_GET['id'])) {
 } else {
     echo "Invalid request";
 }
-?>

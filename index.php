@@ -1,3 +1,14 @@
+<?php
+// Start a session
+session_start();
+
+// Check if the user is not logged in, redirect to login.php
+if (!isset($_SESSION['DoctorID'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Patient List</title>
+    <link rel="icon" href="imgs/drcare.ico" type="image/x-icon">
     <style>
         table td,
         table th {
@@ -24,9 +36,27 @@
             <div>
                 <a href="patientInfoIn.php" class="btn btn-primary">Add New Patient</a>
             </div>
+            <div>
+                <form method="post" action="">
+                    <input type="submit" class="btn btn-primary" name="logout" value="Logout">
+                    <?php
+                    // Linking Database.php
+                    require "db/DataBase.php";
+                    $database = new DataBase();
+                    $conn = $database->dbConnect();
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
+                        $database = new DataBase();
+                        $database->Logoutbutton();
+                    }
+                    ?>
+                </form>
+            </div>
         </header>
         <?php
-        session_start();
         if (isset($_SESSION["create"])) {
         ?>
             <div class="alert alert-success">
@@ -76,7 +106,9 @@
             <tbody>
 
                 <?php
-                include('connect.php');
+
+
+
                 $sqlSelect = "SELECT * FROM patients";
                 $result = mysqli_query($conn, $sqlSelect);
                 while ($data = mysqli_fetch_array($result)) {
