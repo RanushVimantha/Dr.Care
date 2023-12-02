@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to login.php
+if (!isset($_SESSION['DoctorID'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Patient Details</title>
+    <link rel="icon" href="imgs/drcare.ico" type="image/x-icon">
     <style>
         .book-details {
             background-color: #f5f5f5;
@@ -24,7 +35,13 @@
         </header>
         <div class="book-details p-5 my-4">
             <?php
-            include("connect.php");
+            // Linking Database.php
+            require "db/DataBase.php";
+            $database = new DataBase();
+            $conn = $database->dbConnect();
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
             $id = $_GET['id'];
             if ($id) {
                 $sql = "SELECT * FROM Patients WHERE PatientID = $id";
@@ -45,7 +62,7 @@
                     <p><?php echo $row["Email"]; ?></p>
                     <?php
 
-            // Showing All the Diagnosis and Medications relavant to the Patient
+                    // Showing All the Diagnosis and Medications relavant to the Patient
 
                     $sql = "SELECT * FROM MedicalRecords WHERE PatientID = $id";
                     $result = mysqli_query($conn, $sql);
