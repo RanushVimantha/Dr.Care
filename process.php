@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+// Check if the user is not logged in, redirect to login.php
+if (!isset($_SESSION['DoctorID'])) {
+    header("Location: login.php");
+    exit();
+}
+
 // Linking Database.php
 require "db/DataBase.php";
 $database = new DataBase();
@@ -31,9 +40,24 @@ if (isset($_POST["create"])) {
         $stmt = $conn->prepare("INSERT INTO MedicalRecords (PatientID, Diagnosis, Medications) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $existingPatientID, $Diagnosis, $Medications);
         if ($stmt->execute()) {
-            session_start();
-            $_SESSION["create"] = "Medical Records Inserted Successfully!";
-            header("Location:index.php");
+            // Retrieve the generated RecordID
+            $recordID = $conn->insert_id;
+
+            // Get the DoctorID from $_SESSION['DoctorID']
+            $doctorID = $_SESSION['DoctorID'];
+
+            // Insert record into Appointments table
+            $stmt = $conn->prepare("INSERT INTO Appointments (RecordID, DoctorID, PatientID) VALUES (?, ?, ?)");
+            $stmt->bind_param("iii", $recordID, $doctorID, $existingPatientID);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+                session_start();
+                $_SESSION["create"] = "Medical Records Inserted Successfully!";
+                header("Location:index.php");
+            } else {
+                die("Something went wrong with Appointments insertion.");
+            }
         } else {
             die("Something went wrong with inserting medical records.");
         }
@@ -53,11 +77,28 @@ if (isset($_POST["create"])) {
             $stmt->bind_param("iss", $patientID, $Diagnosis, $Medications);
 
             if ($stmt->execute()) {
-                // Both inserts successful, commit the transaction
-                $conn->commit();
-                session_start();
-                $_SESSION["create"] = "Patient Recorded Successfully!";
-                header("Location:index.php");
+                // Retrieve the generated RecordID
+                $recordID = $conn->insert_id;
+
+                // Get the DoctorID from $_SESSION['DoctorID']
+                $doctorID = $_SESSION['DoctorID'];
+
+                // Insert record into Appointments table
+                $stmt = $conn->prepare("INSERT INTO Appointments (RecordID, DoctorID, PatientID) VALUES (?, ?, ?)");
+                $stmt->bind_param("iii", $recordID, $doctorID, $patientID);
+
+                // Execute the statement
+                if ($stmt->execute()) {
+                    // Both inserts successful, commit the transaction
+                    $conn->commit();
+                    session_start();
+                    $_SESSION["create"] = "Patient Recorded Successfully!";
+                    header("Location:index.php");
+                } else {
+                    // Appointments insertion failed, roll back the transaction
+                    $conn->rollback();
+                    die("Something went wrong with Appointments insertion.");
+                }
             } else {
                 // Medical records insertion failed, roll back the transaction
                 $conn->rollback();
