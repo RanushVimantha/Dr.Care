@@ -1,3 +1,13 @@
+<?php
+// Start a session
+session_start();
+
+// Check if the user is not logged in, redirect to login.php
+if (!isset($_SESSION['DoctorID'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!doctype html>
 <html>
 
@@ -5,7 +15,8 @@
   <meta charset="utf-8">
   <title>Edit Patient Info</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" href="imgs/drcare.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -24,7 +35,15 @@
         <?php
 
         if (isset($_GET['id'])) {
-          include("connect.php");
+
+          // Linking Database.php
+          require "db/DataBase.php";
+          $database = new DataBase();
+          $conn = $database->dbConnect();
+          if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+          }
+
           $id = $_GET['id'];
           $sql = "SELECT * FROM patients WHERE PatientID=$id";
           $result = mysqli_query($conn, $sql);
@@ -104,25 +123,25 @@
         $result = mysqli_query($conn, $sql);
         $count = 0; // To keep track of record count
         while ($data = mysqli_fetch_array($result)) {
-            $count++;
+          $count++;
         ?>
-        <!-- Diagnosis -->
-        <h3>Diagnosis <?php echo $data['RecordID']; ?>:</h3>
-        <div class="form-floating">
+          <!-- Diagnosis -->
+          <h3>Diagnosis <?php echo $data['RecordID']; ?>:</h3>
+          <div class="form-floating">
             <textarea class="form-control" name="Diagnosis[]" placeholder="Give the Diagnosis here" style="height: 200px"><?php echo $data["Diagnosis"]; ?></textarea>
             <label for="floatingTextarea2">Diagnosis</label>
-        </div>
-        <!-- Medications -->
-        <h3>Medications <?php echo $data['RecordID']; ?>:</h3>
-        <div class="form-floating">
+          </div>
+          <!-- Medications -->
+          <h3>Medications <?php echo $data['RecordID']; ?>:</h3>
+          <div class="form-floating">
             <textarea class="form-control" name="Medications[]" placeholder="Give the Medications here" style="height: 200px"><?php echo $data["Medications"]; ?></textarea>
             <label for "floatingTextarea2">Medications</label>
-        </div>
-        <input type="hidden" name="recordIDs[]" value="<?php echo $data['RecordID']; ?>"> <!-- Store RecordIDs in a hidden input -->
+          </div>
+          <input type="hidden" name="recordIDs[]" value="<?php echo $data['RecordID']; ?>"> <!-- Store RecordIDs in a hidden input -->
         <?php
         }
         ?>
-        
+
 
         <input type="hidden" value="<?php echo $id; ?>" name="id">
 
