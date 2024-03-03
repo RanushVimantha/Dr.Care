@@ -74,7 +74,7 @@ if (!isset($_SESSION['DoctorID'])) {
       <span class="number">
 
         <label for="floatingInput">Phone Number : </label>
-        <input type="tel" id="validationCustom04" name="contactnumber" placeholder="094-778-91-5586" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{4}" required>
+        <input type="tel" id="validationCustom04" name="contactnumber" placeholder="094-778-91-5586" pattern="[0-9]{10}" required>
         <div class="invalid-feedback"> Enter the Phone Number in this format ( 094-778-91-5586 )</div>
       </span>
 
