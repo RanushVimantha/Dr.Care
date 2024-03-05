@@ -1,4 +1,5 @@
 
+
 body {
   font-family: Arial, sans-serif;
   background-color: #2a2442;
@@ -232,3 +233,4 @@ text-decoration: none; /* Remove underline */
 nav ul li a:hover {
 text-decoration: underline; /* Underline on hover */
 }
+
