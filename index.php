@@ -1,5 +1,6 @@
 <?php
 // Start a session
+ob_start();
 session_start();
 
 // Check if the user is not logged in, redirect to login.php
@@ -22,17 +23,24 @@ if (!isset($_SESSION['DoctorID'])) {
     <link rel="icon" href="imgs/drcare.ico" type="image/x-icon">
 
     <style>
+        body {
+            color: white;
+        }
+
         table td,
         table th {
             vertical-align: middle;
             text-align: right;
             padding: 20px !important;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <div class="container my-4">
+    <?php include('header.html'); ?>
+    <script type="text/javascript" src="js/light-dark.js"></script>
+    <div class="container my-4" style="padding-top: 5%;">
         <?php
         // Linking Database.php
         require "db/DataBase.php";
@@ -52,7 +60,7 @@ if (!isset($_SESSION['DoctorID'])) {
         ?>
             <header class="d-flex justify-content-between my-4">
 
-                <h1>Welcome <?php echo $data['FirstName'];?> <?php echo $data['LastName'];?></h1>
+                <h1>Welcome <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h1>
 
             <?php
         }
@@ -148,7 +156,10 @@ if (!isset($_SESSION['DoctorID'])) {
                 </tbody>
             </table>
     </div>
-
+    <?php include('footer.html'); ?>
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

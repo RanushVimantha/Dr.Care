@@ -64,7 +64,7 @@ if ($db->dbConnect()) {
         ob_end_flush(); // Send the buffered output to the browser and turn off output buffering
           ?>
           </div>
-          <p class="message">Not registered? <a href="#">Create an account</a></p>
+          <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
         </form>
       </div>
     </div>
