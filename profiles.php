@@ -7,7 +7,35 @@
 </head>
 <body>
 <?php include('header.html'); ?>
-        <script type="text/javascript" src="js/light-dark.js"></script>
+<script type="text/javascript" src="js/light-dark.js"></script>
+
+
+
+    <div class="flex-container">
+        <div class="flex-box"><img src="dc.png" alt="doctor">
+        <h4>Dr.vferugkergihevigvbevggug</h4>
+        </div>
+    <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+</div> 
+
+<div class="flex-container">
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+</div> 
+
+<div class="flex-container">
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+</div> 
+
+<div class="flex-container">
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
+</div> 
 
 </body>
 </html>

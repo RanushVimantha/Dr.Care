@@ -113,6 +113,58 @@
 }
 
 /* Doctors_Page */
+*{
+  margin: 0%;
+  padding: 0%;
+  font-family: cursive;
+  box-sizing: border-box;
+  background-color: rgb(115, 0, 255);
+}
+.flex-container{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.flex-box{
+  width: 150px;
+  height: 150px;
+  background: rgb(103, 77, 198);
+  color: rgb(255, 255, 255);
+  line-height: 200px;
+  border-radius: 20px;
+  margin: 10px;
+  align-content: center;
+
+}
+img{
+
+  max-width: 100px; /* Ensure image doesn't exceed its container */
+  max-height: 100px; /* Ensure image doesn't exceed its container */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+h4{
+  margin-bottom: 0%;
+  margin-top: 0%;
+  text-align:center;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+  justify-content: center;
+  color: rgb(149, 56, 56);
+  align-self: flex-end;
+  padding: 20px;
+}
+.name-2{
+  text-align: center;
+  margin: 0%;
+  padding:10%;
+  
+
+}
 
 /* End of Doctors_Page */
 
