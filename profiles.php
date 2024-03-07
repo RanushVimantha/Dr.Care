@@ -4,38 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/new_style.css">
+    
 </head>
 <body>
 <?php include('header.html'); ?>
 <script type="text/javascript" src="js/light-dark.js"></script>
 
+<div class="drCardcontainer">
+        <div class="card">
+            <div class="imgBx">
+                <img src="imgs/Logo.png" alt="Doctor-Image">
+            </div>
 
+            <div class="contentBx">
 
-    <div class="flex-container">
-        <div class="flex-box"><img src="dc.png" alt="doctor">
-        <h4>Dr.vferugkergihevigvbevggug</h4>
+                <h2>Dr. Randil Jay</h2>
+
+                <div class="spec">
+                    <h3>Specialist In :</h3>
+                    <span>Specialisted Area</span>
+
+                </div>
+
+                <div class="spec">
+
+                    <h3>Hospital :</h3>
+                    <span>Ragama District</span>
+
+                </div>
+                <a href="#">View Patitents</a>
+            </div>
+
         </div>
-    <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-</div> 
+    </div>
+</div>
+<div class="drCardcontainer">
+        <div class="card">
+            <div class="imgBx">
+                <img src="imgs/Logo.png" alt="Doctor-Image">
+            </div>
 
-<div class="flex-container">
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-</div> 
+            <div class="contentBx">
 
-<div class="flex-container">
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-</div> 
+                <h2>Dr. Prasanna Jayawickrama</h2>
 
-<div class="flex-container">
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-  <div class="flex-box"><img src="dc.png" alt="doctor"></div>
-</div> 
+                <div class="spec">
+                    <h3>Specialist In :</h3>
+                    <span>Specialisted Area</span>
 
+                </div>
+
+                <div class="spec">
+
+                    <h3>Hospital :</h3>
+                    <span>Colombo District</span>
+
+                </div>
+                <a href="#">View Patitents</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="drCardcontainer">
+        <div class="card">
+            <div class="imgBx">
+                <img src="imgs/Logo.png" alt="Doctor-Image">
+            </div>
+
+            <div class="contentBx">
+
+                <h2>Dr. Randil Jay</h2>
+
+                <div class="spec">
+                    <h3>Specialist In :</h3>
+                    <span>Specialisted Area</span>
+
+                </div>
+
+                <div class="spec">
+
+                    <h3>Hospital :</h3>
+                    <span>Ragama District</span>
+
+                </div>
+                <a href="#">View Patitents</a>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>
