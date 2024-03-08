@@ -19,7 +19,7 @@
 
             <div class="contentBx">
 
-                <h2>Dr. Randil Jay</h2>
+                <h2>Dr. Aloka Wijesinghe</h2>
 
                 <div class="spec">
                     <h3>Specialist In :</h3>
