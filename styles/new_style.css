@@ -120,7 +120,6 @@
   height: auto;
   margin: 50px;
   justify-content: space-between;
-
 }
 
 .drCardcontainer .card {
@@ -131,12 +130,13 @@
   border-radius: 20px;
   overflow: hidden;
   margin: 10px;
-
-
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .drCardcontainer .card:before {
-  content:none;
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

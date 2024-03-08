@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dr-Profiles</title>
     <link rel="stylesheet" type="text/css" href="styles/new_style.css">
     
 </head>
@@ -142,7 +142,7 @@
                 <div class="spec">
 
                     <h3>Hospital :</h3>
-                    <span>Colombo District</span>
+                    <span>Gampaha District</span>
 
                 </div>
                 <a href="#">View Patitents</a>
@@ -226,7 +226,63 @@
                 <div class="spec">
 
                     <h3>Hospital :</h3>
+                    <span>Gampaha District</span>
+
+                </div>
+                <a href="#">View Patitents</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="drCardcontainer">
+        <div class="card">
+            <div class="imgBx">
+                <img src="imgs/Logo.png" alt="Doctor-Image">
+            </div>
+
+            <div class="contentBx">
+
+                <h2>Dr. Prasanna Jayawickrama</h2>
+
+                <div class="spec">
+                    <h3>Specialist In :</h3>
+                    <span>Specialisted Area</span>
+
+                </div>
+
+                <div class="spec">
+
+                    <h3>Hospital :</h3>
                     <span>Colombo District</span>
+
+                </div>
+                <a href="#">View Patitents</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="drCardcontainer">
+        <div class="card">
+            <div class="imgBx">
+                <img src="imgs/Logo.png" alt="Doctor-Image">
+            </div>
+
+            <div class="contentBx">
+
+                <h2>Dr. Nalaka de Silva</h2>
+
+                <div class="spec">
+                    <h3>Specialist In :</h3>
+                    <span>Specialisted Area</span>
+
+                </div>
+
+                <div class="spec">
+
+                    <h3>Hospital :</h3>
+                    <span>Gampaha District</span>
 
                 </div>
                 <a href="#">View Patitents</a>
