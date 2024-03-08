@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Color Variables */
+:root {
+  --bali-hai: #8b91b3;
+  --burning-orange: #ff7739;
+  --catskill-white: #e3edf2;
+  --fountain-blue: #5db0c6;
+  --martinique: #2c324b;
+  --port-gore: #22284b;
+  --rhino: #2C2842;
+  --white: #fff;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--rhino);
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 0.875em 3.25em;
+  -webkit-appearance: none;
+}
+
+.button--add {
+  background: var(--burning-orange);
+  box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+  color: var(--white);
+  transition: background 0.3s ease;
+  margin-top: 40px; 
+  margin-left: 30px;
+}
+
+.button--add:hover{
+    transform: scale(1.12);
+}
+.button--add:focus {
+  background: darken(var(--burning-orange), 10%);
+}
+
+nav {
+  margin-left: calc(-1.875em);
+  padding-top: 1.875em;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--bali-hai);
+  display: block;
+  padding: 1em;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  transition: height 0.3s ease;
+  background-color: var(--white);
+}
+
+
+.container {
+  box-shadow: rgba(29, 29, 31, 0.25) 0 10px 60px;
+  display: flex;
+  max-width: 900px;
+  margin: 2.5em auto;
+  margin-top: 150px;
+
+  
+}
+
+.icon {
+  fill: none;
+  stroke: var(--bali-hai);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+svg {
+  margin-right: 10px;
+  width: 20px;
+  height: 21px;
+  vertical-align: middle;
+}
+
+.sidebar {
+  padding: 5em;
+  width: 50%;
+
+}
+
+.main {
+  width: 100%;
+
+
+}
+
+.sidebar--admin {
+  background-color: #3b355e;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.main--team {
+  background-color: var(--rhino);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+section {
+  padding: 1.875em;
+  border-top-right-radius: 10px;
+
+}
+
+.has-top-border {
+  border-top: 1px solid var(--rhino);
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav--manage a {
+  color: var(--bali-hai);
+  display: inline-block;
+  padding: 0.875em 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav--manage a:hover,
+.nav--manage a:focus {
+  color: var(--rhino);
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.numbers li {
+  display: flex;
+  padding: 0 0 1em;
+}
+
+.number-avatar img {
+  border-radius: 50%;
+  display: block;
+  max-width: 50px;
+  height: auto;
+}
+
+.number-avatar.numbers--featured img {
+  max-width: 80px;
+}
+
+.number-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1em;
+}
+
+.name,
+.count {
+  display: block;
+  line-height: 1.5;
+}
+
+.name {
+  color: var(--rhino);
+}
+
+.count {
+  color: var(--bali-hai);
+  font-size: 0.875em;
+}
+
+.dpfp img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+    margin-left: 15px;
+    width: 200px; 
+    height: 200px; 
+    border-radius: 100%; 
+}
+
+.h3sb h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+    margin-left: 35px;
+}
+.profile-button {
+    display: flex;
+    background: none;
+    background-color: aliceblue;
+    width: 280px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    text-align: left; 
+}
+
+.profile-button2 {
+    display: flex;
+    background: none;
+    background-color: aliceblue;
+    width: 280px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    padding: 0px;
+    cursor: pointer;
+    outline: none;
+    text-align: left; 
+}
+
+.profile-content {
+    display: flex;
+    align-items: center; 
+}
+
+.profile-image {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 10%; 
+    margin-right: 2px; 
+    margin-left: 15px;
+    margin-top: 3px;
+    
+}
+
+.button-text {
+    color: indigo;    
+    font-weight: 300;
+}
