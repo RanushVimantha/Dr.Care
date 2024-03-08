@@ -119,8 +119,7 @@
   width: 400%;
   height: auto;
   margin: 50px;
-  flex-direction: row;
-
+  justify-content: space-between;
 
 }
 
@@ -132,10 +131,12 @@
   border-radius: 20px;
   overflow: hidden;
   margin: 10px;
+
+
 }
 
 .drCardcontainer .card:before {
-  content: "";
+  content:none;
   position: absolute;
   top: 0;
   left: 0;
@@ -196,6 +197,7 @@
   text-align: center;
   transition: 1s;
   z-index: 90;
+  
 }
 
 .drCardcontainer .card:hover .contentBx {
