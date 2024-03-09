@@ -115,9 +115,12 @@
 /* Doctors_Page */
 
 .drCardcontainer {
-  position: relative;
+  display: flex;
+  width: 400%;
+  height: auto;
+  margin: 50px;
+  justify-content: space-between;
 }
-
 .drCardcontainer .card {
   position: relative;
   width: 400px;
@@ -125,6 +128,10 @@
   background: #232323;
   border-radius: 20px;
   overflow: hidden;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .drCardcontainer .card:before {
@@ -189,6 +196,7 @@
   text-align: center;
   transition: 1s;
   z-index: 90;
+  
 }
 
 .drCardcontainer .card:hover .contentBx {
@@ -244,8 +252,6 @@
   transition: .5s;
   border-radius: 15px;
 }
-
-
 
 .drCardcontainer .card .contentBx a {
   display: inline-block;
