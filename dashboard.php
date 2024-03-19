@@ -38,13 +38,30 @@ if (!isset($_SESSION['DoctorID'])) {
 </head>
 
 <body>
-<?php include('header.html'); ?>
+<?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
          
 
 
 <div class="container">
 	<div class="sidebar sidebar--admin">
+    <?php
+        // Linking Database.php
+        require "db/DataBase.php";
+        $database = new DataBase();
+        $conn = $database->dbConnect();
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Get the DoctorID from $_SESSION['DoctorID']
+        $doctorID = $_SESSION['DoctorID'];
+        // Showing All the Diagnosis and Medications relavant to the Patient
+
+        $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+        $result = mysqli_query($conn, $sql);
+        while ($data = mysqli_fetch_array($result)) {
+        ?>
 
         <!-- Profile Image !-->
         <div class="dpfp">
@@ -52,8 +69,11 @@ if (!isset($_SESSION['DoctorID'])) {
         </div>
         <!-- End of Profile Image -->
         <div class="h3sb">
-            <h3>Dr. Ranush Vimantha</h3>
+            <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
         </div>
+        <?php
+        }
+            ?>
         <button class="button button--add">My Profile</button>
 	</div>
 	<div class="main main--team">
@@ -90,7 +110,7 @@ if (!isset($_SESSION['DoctorID'])) {
 
 	</div>
 </div>
-    <?php include('footer.html'); ?>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>

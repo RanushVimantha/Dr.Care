@@ -8,7 +8,7 @@
     
 </head>
 <body>
-<?php include('header.html'); ?>
+<?php include('header.php'); ?>
 <script type="text/javascript" src="js/light-dark.js"></script>
 
 <div class="drCardcontainer">
@@ -291,6 +291,6 @@
         </div>
     </div>
 </div>
-<?php include('footer.html'); ?>
+<?php include('footer.php'); ?>
 </body>
 </html>
