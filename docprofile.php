@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Profile</title>
-    <link rel="stylesheet" href="docprofile.css">
+    <link rel="stylesheet" href="styles/docprofile.css">
 </head>
 <body>
+<?php include('header.php'); ?>
     <div class="container">
         <header>
             <h1>Doctor Profile</h1>
-            <nav>
-            </nav>
+
         </header>
         <div class="profile">
             <div class="menu">
@@ -33,5 +33,6 @@
             </div>
         </div>
     </div>
+    <?php include('footer.php'); ?>
 </body>
 </html>

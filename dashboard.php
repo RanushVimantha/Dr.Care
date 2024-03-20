@@ -41,7 +41,18 @@ if (!isset($_SESSION['DoctorID'])) {
     <?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
 
+    <div class="container">
+        <div class="sidebar sidebar--admin">
+            <?php
+            // Linking Database.php
+            require "db/DataBase.php";
+            $database = new DataBase();
+            $conn = $database->dbConnect();
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
 
+<<<<<<< Updated upstream
 
     <div class="container">
         <div class="sidebar sidebar--admin">
@@ -78,10 +89,35 @@ if (!isset($_SESSION['DoctorID'])) {
         </div>
         <div class="main main--team">
             <section style="background-color: var(--rhino);">
+=======
+            // Get the DoctorID from $_SESSION['DoctorID']
+            $doctorID = $_SESSION['DoctorID'];
+
+            // Fetch Doctor's information
+            $sqlDoctor = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+            $resultDoctor = mysqli_query($conn, $sqlDoctor);
+            $doctorData = mysqli_fetch_array($resultDoctor);
+            ?>
+
+            <!-- Display Doctor's profile -->
+            <div class="dpfp">
+                <img src="imgs/Logo.png" alt="Profile Image">
+            </div>
+            <div class="h3sb">
+                <h3>Dr. <?php echo $doctorData['FirstName']; ?> <?php echo $doctorData['LastName']; ?></h3>
+            </div>
+            <button class="button button--add">My Profile</button>
+        </div>
+
+        <div class="main main--team">
+            <section style="background-color: var(--rhino);">
+                <!-- Alerts for actions -->
+>>>>>>> Stashed changes
                 <?php
                 if (isset($_SESSION["create"])) {
                 ?>
                     <div class="alert alert-success">
+<<<<<<< Updated upstream
                         <?php
                         echo $_SESSION["create"];
                         ?>
@@ -114,6 +150,32 @@ if (!isset($_SESSION['DoctorID'])) {
                     unset($_SESSION["delete"]);
                 }
                 ?>
+=======
+                        <?php echo $_SESSION["create"]; ?>
+                    </div>
+                    <?php unset($_SESSION["create"]); ?>
+
+                <?php
+                } elseif (isset($_SESSION["update"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php echo $_SESSION["update"]; ?>
+                    </div>
+                    <?php unset($_SESSION["update"]); ?>
+
+                <?php
+                } elseif (isset($_SESSION["delete"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php echo $_SESSION["delete"]; ?>
+                    </div>
+                    <?php unset($_SESSION["delete"]); ?>
+                <?php
+                }
+                ?>
+
+                <!-- Profile buttons -->
+>>>>>>> Stashed changes
                 <ul class="numbers numbers--featured">
                     <li>
                         <button class="profile-button">
@@ -142,6 +204,7 @@ if (!isset($_SESSION['DoctorID'])) {
                 </ul>
             </section>
 
+<<<<<<< Updated upstream
             <section class="has-top-border">
                 <?php
                 $sqlSelect = "SELECT * FROM patients";
@@ -158,6 +221,43 @@ if (!isset($_SESSION['DoctorID'])) {
                 <?php
                 }
                 ?>
+=======
+            <!-- Display patients treated by the logged-in doctor -->
+            <section class="has-top-border">
+                <?php
+                // Fetch patients treated by the logged-in doctor
+                $sqlPatients = "SELECT p.*, m.* 
+                FROM patients p 
+                LEFT JOIN MedicalRecords m ON p.PatientID = m.PatientID 
+                WHERE m.RecordID IN (SELECT MAX(RecordID) FROM MedicalRecords GROUP BY PatientID) 
+                AND p.PatientID IN (SELECT PatientID FROM Appointments WHERE DoctorID = $doctorID)
+                ORDER BY m.DateAdded DESC";
+
+                $resultPatients = mysqli_query($conn, $sqlPatients);
+                $prevPatientID = null; // Variable to keep track of the previous patient ID
+
+                while ($row = mysqli_fetch_assoc($resultPatients)) {
+                    // Check if it's a new patient
+                    if ($row['PatientID'] != $prevPatientID) {
+                        // Truncate the Diagnosis text if it's longer than 50 characters
+                        $diagnosis = strlen($row['Diagnosis']) > 100 ? substr($row['Diagnosis'], 0, 100) . "...read more" : $row['Diagnosis'];
+                ?>
+                        <!-- Display patient details -->
+                        <a href="PatientView.php?id=<?php echo $row['PatientID']; ?>">
+                            <div class="recent-patients">
+                                <h5 class="recent-patients-text"><?php echo $row['FirstName']; ?> <?php echo $row['LastName']; ?></h5>
+                                <h6 class="recent-patients-text"><?php echo $row['Gender']; ?></h6>
+                                <p class="recent-patients-text"><?php echo $diagnosis; ?></p>
+                            </div>
+                        </a>
+                <?php
+                        // Update the previous patient ID
+                        $prevPatientID = $row['PatientID'];
+                    }
+                }
+                ?>
+
+>>>>>>> Stashed changes
             </section>
 
         </div>
