@@ -31,7 +31,7 @@
                     <li><a href="#">Patients</a></li>
                     <li><a href="#">My Profile</a></li>
                     <li><a href="#">Doctors</a></li>
-                    <li><a href="#">Logout</a></li>
+                    
                 </ul>
             </div>
 

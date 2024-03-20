@@ -42,21 +42,19 @@ button {
   box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
   color: var(--white);
   transition: background 0.3s ease;
-  margin-top: 40px; 
+  margin-top: 40px;
   margin-left: 30px;
 }
 
-.button--add:hover{
-    transform: scale(1.12);
+.button--add:hover {
+  transform: scale(1.12);
 }
+
 .button--add:focus {
   background: darken(var(--burning-orange), 10%);
 }
 
-nav {
-  margin-left: calc(-1.875em);
-  padding-top: 1.875em;
-}
+
 
 ul {
   list-style-type: none;
@@ -92,7 +90,7 @@ a:before {
   margin: 2.5em auto;
   margin-top: 150px;
 
-  
+
 }
 
 .icon {
@@ -140,28 +138,6 @@ section {
 
 }
 
-.has-top-border {
-  border-top: 1px solid var(--rhino);
-}
-
-.nav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav--manage a {
-  color: var(--bali-hai);
-  display: inline-block;
-  padding: 0.875em 0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav--manage a:hover,
-.nav--manage a:focus {
-  color: var(--rhino);
-}
 
 .numbers {
   display: flex;
@@ -210,67 +186,106 @@ section {
 }
 
 .dpfp img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; 
-    margin-left: 15px;
-    width: 200px; 
-    height: 200px; 
-    border-radius: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 15px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
 }
 
 .h3sb h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; 
-    margin-left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 35px;
 }
+
 .profile-button {
-    display: flex;
-    background: none;
-    background-color: aliceblue;
-    width: 280px;
-    height: 60px;
-    border: none;
-    border-radius: 10px;
-    padding: 0;
-    cursor: pointer;
-    outline: none;
-    text-align: left; 
+  display: flex;
+  background: none;
+  background-color: aliceblue;
+  width: 280px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
 }
 
 .profile-button2 {
-    display: flex;
-    background: none;
-    background-color: aliceblue;
-    width: 280px;
-    height: 60px;
-    border: none;
-    border-radius: 10px;
-    padding: 0px;
-    cursor: pointer;
-    outline: none;
-    text-align: left; 
+  display: flex;
+  background: none;
+  background-color: aliceblue;
+  width: 280px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  padding: 0px;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
 }
 
 .profile-content {
-    display: flex;
-    align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 .profile-image {
-    width: 50px; 
-    height: 50px; 
-    border-radius: 10%; 
-    margin-right: 2px; 
-    margin-left: 15px;
-    margin-top: 3px;
-    
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  margin-right: 2px;
+  margin-left: 15px;
+  margin-top: 3px;
+
 }
 
 .button-text {
-    color: indigo;    
-    font-weight: 300;
+  color: indigo;
+  font-size: 1em;
+}
+
+/* New */
+
+.has-top-border {
+  background-color: #433F57;
+  overflow: auto;
+  white-space: nowrap;
+  height: 500px;
+  margin: 20px;
+  border-radius: 10px;
+
+}
+
+.recent-patients {
+  background-color: var(--catskill-white);
+  border-radius: 10px;
+  margin-bottom: -30px;
+}
+
+.recent-patients-text{
+  padding: 5px 10px 5px 10px;
+}
+
+
+/* Add mobile responsive styles here */
+@media (max-width: 768px) {
+  .sidebar--admin {
+    display: none;
+  }
+
+  .main--team {
+    width: 100%;
+  }
+  .button-text {
+    color: indigo;
+    font-size: 0.8em;
+  }
 }

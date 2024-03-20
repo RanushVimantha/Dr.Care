@@ -22,11 +22,11 @@
 
             <div class="row">
                 <ul>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="index.php">Dashboard</a></li>
                     <li><a href="#">Patients</a></li>
                     <li><a href="#">My Profile</a></li>
                     <li><a href="#">Doctors</a></li>
-                    <li><a href="#">Logout</a></li>
+                    
                 </ul>
             </div>
 

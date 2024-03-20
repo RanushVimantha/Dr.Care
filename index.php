@@ -38,7 +38,7 @@ if (!isset($_SESSION['DoctorID'])) {
 </head>
 
 <body>
-    <?php include('header.html'); ?>
+    <?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
     <div class="container my-4" style="padding-top: 5%;">
         <?php
@@ -156,7 +156,7 @@ if (!isset($_SESSION['DoctorID'])) {
                 </tbody>
             </table>
     </div>
-    <?php include('footer.html'); ?>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>

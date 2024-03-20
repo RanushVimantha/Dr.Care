@@ -38,59 +38,131 @@ if (!isset($_SESSION['DoctorID'])) {
 </head>
 
 <body>
-<?php include('header.html'); ?>
+    <?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
-         
 
 
-<div class="container">
-	<div class="sidebar sidebar--admin">
 
-        <!-- Profile Image !-->
-        <div class="dpfp">
-            <img src="imgs/Logo.png" alt="Profile Image">
+    <div class="container">
+        <div class="sidebar sidebar--admin">
+            <?php
+            // Linking Database.php
+            require "db/DataBase.php";
+            $database = new DataBase();
+            $conn = $database->dbConnect();
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            // Get the DoctorID from $_SESSION['DoctorID']
+            $doctorID = $_SESSION['DoctorID'];
+            // Showing All the Diagnosis and Medications relavant to the Patient
+
+            $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+            $result = mysqli_query($conn, $sql);
+            while ($data = mysqli_fetch_array($result)) {
+            ?>
+
+                <!-- Profile Image !-->
+                <div class="dpfp">
+                    <img src="imgs/Logo.png" alt="Profile Image">
+                </div>
+                <!-- End of Profile Image -->
+                <div class="h3sb">
+                    <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+                </div>
+            <?php
+            }
+            ?>
+            <button class="button button--add">My Profile</button>
         </div>
-        <!-- End of Profile Image -->
-        <div class="h3sb">
-            <h3>Dr. Ranush Vimantha</h3>
+        <div class="main main--team">
+            <section style="background-color: var(--rhino);">
+                <?php
+                if (isset($_SESSION["create"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["create"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["create"]);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION["update"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["update"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["update"]);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION["delete"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["delete"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["delete"]);
+                }
+                ?>
+                <ul class="numbers numbers--featured">
+                    <li>
+                        <button class="profile-button">
+                            <div class="profile-content">
+                                <div class="number-avatar">
+                                    <img src="imgs/Logo.png" alt="Patient's Overview" class="profile-image">
+                                </div>
+                                <div class="number-meta">
+                                    <span class="name button-text">Your Patient's Overview</span>
+                                </div>
+                            </div>
+                        </button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <button class="profile-button2">
+                            <div class="profile-content">
+                                <div class="number-avatar">
+                                    <img src="imgs/Logo.png" alt="Add a New Patient" class="profile-image">
+                                </div>
+                                <a href="patientInfoIn.php">
+                                    <div class="number-meta">
+                                        <span class="name button-text">Add New Patient</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="has-top-border">
+                <?php
+                $sqlSelect = "SELECT * FROM patients";
+                $result = mysqli_query($conn, $sqlSelect);
+                while ($data = mysqli_fetch_array($result)) {
+                ?>
+                    <a href="PatientView.php?id=<?php echo $data['PatientID']; ?>">
+                        <div class="recent-patients">
+                            <h5 class="recent-patients-text"><?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h5>
+                            <h6 class="recent-patients-text"><?php echo $data['Gender']; ?></h6>
+
+                        </div>
+                    </a>
+                <?php
+                }
+                ?>
+            </section>
+
         </div>
-        <button class="button button--add">My Profile</button>
-	</div>
-	<div class="main main--team">
-		<section style="background-color: var(--rhino);">
-			<ul class="numbers numbers--featured">
-            <li>
-                 <button class="profile-button">
-                    <div class="profile-content">
-                         <div class="number-avatar">
-                            <img src="imgs/Logo.png" alt="Patient's Overview" class="profile-image">
-                        </div>
-                         <div class="number-meta">
-                         <span class="name button-text">Your Patient's Overview</span>                            
-                        </div>
-                    </div>
-                </button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <button class="profile-button2">
-                    <div class="profile-content">
-                         <div class="number-avatar">
-                            <img src="imgs/Logo.png" alt="Add a New Patient" class="profile-image">
-                        </div>
-                         <div class="number-meta">
-                         <span class="name button-text">Add New Patient</span>                            
-                        </div>
-                    </div>
-                </button>
-            </li>
-            </ul>
-		</section>
-
-		<section class="has-top-border">
-			
-		</section>
-
-	</div>
-</div>
-    <?php include('footer.html'); ?>
+    </div>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>
