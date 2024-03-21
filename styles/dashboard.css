@@ -88,12 +88,7 @@ a:before {
   display: flex;
   max-width: 900px;
   margin: 2.5em auto;
-<<<<<<< Updated upstream
   margin-top: 150px;
-=======
-  margin-top: 125px;
-  
->>>>>>> Stashed changes
 
 
 }
@@ -262,38 +257,21 @@ section {
 .has-top-border {
   background-color: #433F57;
   overflow: auto;
-<<<<<<< Updated upstream
   white-space: nowrap;
-=======
-  white-space: wrap;
->>>>>>> Stashed changes
   height: 500px;
   margin: 20px;
   border-radius: 10px;
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }
 
 .recent-patients {
   background-color: var(--catskill-white);
   border-radius: 10px;
   margin-bottom: -30px;
-<<<<<<< Updated upstream
 }
 
 .recent-patients-text{
   padding: 5px 10px 5px 10px;
-=======
-  max-width: 100%;
-}
-
-.recent-patients-text {
-  padding: 10px 10px;
-
->>>>>>> Stashed changes
 }
 
 
