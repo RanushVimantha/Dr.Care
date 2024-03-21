@@ -113,39 +113,18 @@
 }
 
 /* Doctors_Page */
-.drCardsGrid1 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 1px; 
-  margin-bottom: -80px;
-}
-
-.drCardsGrid2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: -1px; 
-  margin-top: -80px;
-  margin-bottom: 50px;
-}
-
-.drCardsGrid1:first-of-type .drCardcontainer {
-    margin-bottom: 1px; 
-}
-
 
 .drCardcontainer {
   display: flex;
-  width: 350%;
+  width: 400%;
   height: auto;
   margin: 50px;
-  margin-top: 150px;
-  margin-left: 100px;
   justify-content: space-between;
 }
 .drCardcontainer .card {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   background: #232323;
   border-radius: 20px;
   overflow: hidden;
@@ -205,7 +184,7 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
+  width: 270px;
 }
 
 .drCardcontainer .card .contentBx {
@@ -221,13 +200,12 @@
 }
 
 .drCardcontainer .card:hover .contentBx {
-  height: 210px;
+  height: 230px;
 }
 
 .drCardcontainer .card .contentBx h2 {
   position: relative;
   font-weight: 600;
-  font-size: 28px;
   letter-spacing: 1px;
   color: #fff;
 }

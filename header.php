@@ -30,7 +30,7 @@
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li><a href="#">Patients</a></li>
                     <li><a href="#">My Profile</a></li>
-                    <li><a href="doctor_profiles.php">Doctors</a></li>
+                    <li><a href="#">Doctors</a></li>
                     
                 </ul>
             </div>
