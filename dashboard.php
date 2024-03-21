@@ -144,20 +144,38 @@ if (!isset($_SESSION['DoctorID'])) {
 
             <section class="has-top-border">
                 <?php
-                $sqlSelect = "SELECT * FROM patients";
-                $result = mysqli_query($conn, $sqlSelect);
-                while ($data = mysqli_fetch_array($result)) {
-                ?>
-                    <a href="PatientView.php?id=<?php echo $data['PatientID']; ?>">
-                        <div class="recent-patients">
-                            <h5 class="recent-patients-text"><?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h5>
-                            <h6 class="recent-patients-text"><?php echo $data['Gender']; ?></h6>
+                // Fetch patients treated by the logged-in doctor
+                $sqlPatients = "SELECT p.*, m.* 
+                FROM patients p 
+                LEFT JOIN MedicalRecords m ON p.PatientID = m.PatientID 
+                WHERE m.RecordID IN (SELECT MAX(RecordID) FROM MedicalRecords GROUP BY PatientID) 
+                AND p.PatientID IN (SELECT PatientID FROM Appointments WHERE DoctorID = $doctorID)
+                ORDER BY m.DateAdded DESC";
 
-                        </div>
-                    </a>
+                $resultPatients = mysqli_query($conn, $sqlPatients);
+                $prevPatientID = null; // Variable to keep track of the previous patient ID
+
+                while ($row = mysqli_fetch_assoc($resultPatients)) {
+                    // Check if it's a new patient
+                    if ($row['PatientID'] != $prevPatientID) {
+                        // Truncate the Diagnosis text if it's longer than 50 characters
+                        $diagnosis = strlen($row['Diagnosis']) > 50 ? substr($row['Diagnosis'], 0, 50) . "...read more" : $row['Diagnosis'];
+                ?>
+                        <!-- Display patient details -->
+                        <a href="PatientView.php?id=<?php echo $row['PatientID']; ?>">
+                            <div class="recent-patients">
+                                <h5 class="recent-patients-text"><?php echo $row['FirstName']; ?> <?php echo $row['LastName']; ?></h5>
+                                <h6 class="recent-patients-text"><?php echo $row['Gender']; ?></h6>
+                                <p class="recent-patients-text"><?php echo $diagnosis; ?></p>
+                            </div>
+                        </a>
                 <?php
+                        // Update the previous patient ID
+                        $prevPatientID = $row['PatientID'];
+                    }
                 }
                 ?>
+
             </section>
 
         </div>
