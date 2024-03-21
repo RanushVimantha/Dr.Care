@@ -52,6 +52,44 @@ if (!isset($_SESSION['DoctorID'])) {
                 die("Connection failed: " . mysqli_connect_error());
             }
 
+<<<<<<< Updated upstream
+
+    <div class="container">
+        <div class="sidebar sidebar--admin">
+            <?php
+            // Linking Database.php
+            require "db/DataBase.php";
+            $database = new DataBase();
+            $conn = $database->dbConnect();
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            // Get the DoctorID from $_SESSION['DoctorID']
+            $doctorID = $_SESSION['DoctorID'];
+            // Showing All the Diagnosis and Medications relavant to the Patient
+
+            $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+            $result = mysqli_query($conn, $sql);
+            while ($data = mysqli_fetch_array($result)) {
+            ?>
+
+                <!-- Profile Image !-->
+                <div class="dpfp">
+                    <img src="imgs/Logo.png" alt="Profile Image">
+                </div>
+                <!-- End of Profile Image -->
+                <div class="h3sb">
+                    <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+                </div>
+            <?php
+            }
+            ?>
+            <button class="button button--add">My Profile</button>
+        </div>
+        <div class="main main--team">
+            <section style="background-color: var(--rhino);">
+=======
             // Get the DoctorID from $_SESSION['DoctorID']
             $doctorID = $_SESSION['DoctorID'];
 
@@ -74,10 +112,45 @@ if (!isset($_SESSION['DoctorID'])) {
         <div class="main main--team">
             <section style="background-color: var(--rhino);">
                 <!-- Alerts for actions -->
+>>>>>>> Stashed changes
                 <?php
                 if (isset($_SESSION["create"])) {
                 ?>
                     <div class="alert alert-success">
+<<<<<<< Updated upstream
+                        <?php
+                        echo $_SESSION["create"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["create"]);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION["update"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["update"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["update"]);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION["delete"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["delete"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["delete"]);
+                }
+                ?>
+=======
                         <?php echo $_SESSION["create"]; ?>
                     </div>
                     <?php unset($_SESSION["create"]); ?>
@@ -102,6 +175,7 @@ if (!isset($_SESSION['DoctorID'])) {
                 ?>
 
                 <!-- Profile buttons -->
+>>>>>>> Stashed changes
                 <ul class="numbers numbers--featured">
                     <li>
                         <button class="profile-button">
@@ -130,6 +204,24 @@ if (!isset($_SESSION['DoctorID'])) {
                 </ul>
             </section>
 
+<<<<<<< Updated upstream
+            <section class="has-top-border">
+                <?php
+                $sqlSelect = "SELECT * FROM patients";
+                $result = mysqli_query($conn, $sqlSelect);
+                while ($data = mysqli_fetch_array($result)) {
+                ?>
+                    <a href="PatientView.php?id=<?php echo $data['PatientID']; ?>">
+                        <div class="recent-patients">
+                            <h5 class="recent-patients-text"><?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h5>
+                            <h6 class="recent-patients-text"><?php echo $data['Gender']; ?></h6>
+
+                        </div>
+                    </a>
+                <?php
+                }
+                ?>
+=======
             <!-- Display patients treated by the logged-in doctor -->
             <section class="has-top-border">
                 <?php
@@ -165,6 +257,7 @@ if (!isset($_SESSION['DoctorID'])) {
                 }
                 ?>
 
+>>>>>>> Stashed changes
             </section>
 
         </div>
