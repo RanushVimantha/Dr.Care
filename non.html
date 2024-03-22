@@ -1,92 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Signup</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            width: 300px;
+            margin: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product-card p {
+            margin-top: 5px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .product-card span {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #ff5733;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" aria-controls="login" aria-selected="true">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" aria-controls="signup" aria-selected="false">Signup</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup2" aria-controls="signup" aria-selected="false">Signup</a>
-                            </li>
-                        </ul>
-                    </div>
-
-
-                    <div class="card-body">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="login-email">Email address</label>
-                                        <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="login-password">Password</label>
-                                        <input type="password" class="form-control" id="login-password" placeholder="Password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </form>
-                            </div>
-
-
-                            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="signup-username">Username</label>
-                                        <input type="text" class="form-control" id="signup-sername" placeholder="Username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="signup-email">Email address</label>
-                                        <input type="email" class="form-control" id="signup-mail" aria-describedby="emailHelp" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="signup-password">Password</label>
-                                        <input type="password" class="form-control" id="signup-assword" placeholder="Password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Signup</button>
-
-
-                                    <div class="tab-pane fade" id="signup2" role="tabpanel" aria-labelledby="signup-tab">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="signup-username">Username</label>
-                                                <input type="text" class="form-control" id="signup-username" placeholder="Username">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="signup-email">Email address</label>
-                                                <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp" placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="signup-password">Password</label>
-                                                <input type="password" class="form-control" id="signup-password" placeholder="Password">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Signup</button>
-
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="product-container">
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of Product 1</p>
+            <span>$19.99</span>
+        </div>
+        <div class="product-card">
+            <img src="product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of Product 2</p>
+            <span>$24.99</span>
         </div>
     </div>
 </body>
+
 </html>

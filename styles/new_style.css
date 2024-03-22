@@ -6,6 +6,7 @@
   padding: 8% 0 0;
   margin: auto;
 }
+
 .form {
   position: relative;
   z-index: 1;
@@ -18,9 +19,10 @@
   border-radius: 30px;
 }
 
-.dark .form{
-    background: #1e1e1f;
+.dark .form {
+  background: #1e1e1f;
 }
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -35,9 +37,10 @@
 }
 
 .dark .form input {
-    color: #FFFFFF;
-    background: #434343;
+  color: #FFFFFF;
+  background: #434343;
 }
+
 .form input[type=submit] {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -53,14 +56,17 @@
   cursor: pointer;
   border-radius: 8px;
 }
-.form input[type=submit]:hover,.form input[type=submit]:active,.form input[type=submit]:focus {
+
+.form input[type=submit]:hover,
+.form input[type=submit]:active,
+.form input[type=submit]:focus {
   background: #1466cb;
 }
 
-.form .errortext{
-    margin: 5px 0 0;
-    color: #b3b3b3;
-    font-size: 12px;
+.form .errortext {
+  margin: 5px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
 }
 
 .form .message {
@@ -68,31 +74,39 @@
   color: #b3b3b3;
   font-size: 12px;
 }
+
 .form .message a {
   color: #14BDCB;
   text-decoration: none;
 }
+
 .form .message a:hover {
-    color: #1466cb;
+  color: #1466cb;
 }
+
 .form .register-form {
   display: none;
 }
+
 .container {
   position: relative;
   z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }
-.container:before, .container:after {
+
+.container:before,
+.container:after {
   content: "";
   display: block;
   clear: both;
 }
+
 .container .info {
   margin: 50px auto;
   text-align: center;
 }
+
 .container .info h1 {
   margin: 0 0 15px;
   padding: 0;
@@ -100,48 +114,37 @@
   font-weight: 300;
   color: #1a1a1a;
 }
+
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
+
 .container .info span a {
   color: #000000;
   text-decoration: none;
 }
+
 .container .info span .fa {
   color: #EF3B3A;
 }
 
 /* Doctors_Page */
-.drCardsGrid1 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 1px; 
-  margin-bottom: -80px;
-}
 
-.drCardsGrid2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: -1px; 
-  margin-top: -80px;
-  margin-bottom: 50px;
-}
-
-.drCardsGrid1:first-of-type .drCardcontainer {
-    margin-bottom: 1px; 
-}
 
 
 .drCardcontainer {
   display: flex;
-  width: 350%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
   height: auto;
-  margin: 50px;
+  margin: 100px 50px;
   margin-top: 150px;
-  margin-left: 100px;
-  justify-content: space-between;
+
+
 }
+
 .drCardcontainer .card {
   position: relative;
   width: 350px;
@@ -163,13 +166,13 @@
   width: 100%;
   height: 50%;
   background: #1BBFE9;
-  clip-path: circle(150px at 80% 20%);
+  clip-path: circle(150px at 80% 00%);
   transition: 0.5s ease-in-out;
 }
 
 .drCardcontainer .card:hover:before {
 
-  clip-path: circle(300px at 80% -60%);
+  clip-path: circle(150px at 50% -10%);
 }
 
 .drCardcontainer .card:after {
@@ -188,7 +191,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   height: 100%;
   transition: .5s;
@@ -217,11 +220,11 @@
   text-align: center;
   transition: 1s;
   z-index: 90;
-  
+
 }
 
 .drCardcontainer .card:hover .contentBx {
-  height: 210px;
+  height: 175px;
 }
 
 .drCardcontainer .card .contentBx h2 {
@@ -247,6 +250,7 @@
   opacity: 1;
   visibility: visible;
   transition-delay: .5s;
+  margin: 5px 0;
 }
 
 
@@ -257,6 +261,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-right: 10px;
+
 }
 
 .drCardcontainer .card .contentBx .spec span {
@@ -294,15 +299,15 @@
   opacity: 1;
   transform: translateY(10px);
   transition-delay: .7s;
-} 
+}
 
 /* End of Doctors_Page */
 
 @media (max-width: 790px) {
-    .login-page {
-        width: 360px;
-        padding: 8% 0 0;
-        margin: auto;
-        margin-top: 20%;
-      }
-    }
+  .login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+    margin-top: 20%;
+  }
+}
