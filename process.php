@@ -52,6 +52,26 @@ if (isset($_POST["create"])) {
 
             // Execute the statement
             if ($stmt->execute()) {
+                // Insert data into PrescriptionDetails table
+                if (isset($_POST['Medications'])) {
+                    $medications = json_decode($_POST['Medications'], true);
+                    foreach ($medications as $med) {
+                        $medName = mysqli_real_escape_string($conn, $med['med_name']);
+                        $scTime = mysqli_real_escape_string($conn, $med['sc_time']);
+                        $meal = mysqli_real_escape_string($conn, $med['meal']);
+                        $medPeriod = mysqli_real_escape_string($conn, $med['med_period']);
+
+                        $prescriptionStmt = $conn->prepare("INSERT INTO PrescriptionDetails (PatientID, RecordID, MedName, ScTime, Meal, MedPeriod) VALUES (?, ?, ?, ?, ?, ?)");
+                        $prescriptionStmt->bind_param("iissss", $existingPatientID, $recordID, $medName, $scTime, $meal, $medPeriod);
+                        if (!$prescriptionStmt->execute()) {
+                            // Log error if PrescriptionDetails insertion fails
+                            $_SESSION["create"] = "PrescriptionDetails insertion failed: " . mysqli_error($conn);
+                            header("Location:index.php");
+                            exit();
+                        }
+                        $prescriptionStmt->close();
+                    }
+                }
                 session_start();
                 $_SESSION["create"] = "Medical Records Inserted Successfully!";
                 header("Location:index.php");
@@ -89,6 +109,26 @@ if (isset($_POST["create"])) {
 
                 // Execute the statement
                 if ($stmt->execute()) {
+                    // Insert data into PrescriptionDetails table
+                    if (!empty($_POST['Medications'])) {
+                        $medications = json_decode($_POST['Medications'], true);
+                        foreach ($medications as $med) {
+                            $medName = mysqli_real_escape_string($conn, $med['med_name']);
+                            $scTime = mysqli_real_escape_string($conn, $med['sc_time']);
+                            $meal = mysqli_real_escape_string($conn, $med['meal']);
+                            $medPeriod = mysqli_real_escape_string($conn, $med['med_period']);
+
+                            $prescriptionStmt = $conn->prepare("INSERT INTO PrescriptionDetails (PatientID, RecordID, MedName, ScTime, Meal, MedPeriod) VALUES (?, ?, ?, ?, ?, ?)");
+                            $prescriptionStmt->bind_param("iissss", $patientID, $recordID, $medName, $scTime, $meal, $medPeriod);
+                            if (!$prescriptionStmt->execute()) {
+                                // Log error if PrescriptionDetails insertion fails
+                                $_SESSION["create"] = "PrescriptionDetails insertion failed: " . mysqli_error($conn);
+                                header("Location:index.php");
+                                exit();
+                            }
+                            $prescriptionStmt->close();
+                        }
+                    }
                     // Both inserts successful, commit the transaction
                     $conn->commit();
                     session_start();
@@ -104,9 +144,6 @@ if (isset($_POST["create"])) {
                 $conn->rollback();
                 die("Something went wrong with medical records insertion.");
             }
-        } else {
-            // Patient insertion failed
-            die("Something went wrong with patient insertion.");
         }
     }
 }
