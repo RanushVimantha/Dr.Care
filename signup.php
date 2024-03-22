@@ -38,7 +38,7 @@ if ($db->dbConnect()) {
                     <input type="text" name="FirstName" required placeholder="First Name" />
                     <input type="text" name="LastName" required placeholder="Last Name" />
                     <input type="email" name="Email" required placeholder="Email" />
-                    <input type="text" name="Specialization" required placeholder="Specialization" />
+                    <input type="text" name="Specialization" required placeholder="Specialist In" />
                     <input type="password" name="Password" required placeholder="Password" />
                     <input type="submit" class="login-submit" value="create">
                     <p class="message">Already registered? <a href="login.php">Sign In</a></p>

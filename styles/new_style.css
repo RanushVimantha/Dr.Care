@@ -139,7 +139,7 @@
   justify-content: space-around;
 
   height: auto;
-  margin: 100px 50px;
+  margin: 50px;
   margin-top: 150px;
 
 
@@ -275,7 +275,7 @@
   display: inline-block;
   color: #e3e3e3;
   background: #4a4a4a;
-  margin: 0 5px;
+  margin: -10px 5px 0 0;
   transition: .5s;
   border-radius: 15px;
 }

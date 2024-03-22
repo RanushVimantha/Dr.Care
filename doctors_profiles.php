@@ -29,145 +29,56 @@ if (!isset($_SESSION['DoctorID'])) {
     <?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
 
+
+
     <div class="drCardcontainer">
-        <div class="card">
-            <div class="imgBx">
-                <img src="imgs/Logo.png" alt="Doctor-Image">
-            </div>
+        <?php
+        // Linking Database.php
+        require "db/DataBase.php";
+        $database = new DataBase();
+        $conn = $database->dbConnect();
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-            <div class="contentBx">
+        // Get the DoctorID from $_SESSION['DoctorID']
+        $doctorID = $_SESSION['DoctorID'];
+        // Showing All the Diagnosis and Medications relavant to the Patient
 
-                <h2>Dr. Ranush Vimantha</h2>
-
-                <div class="spec">
-                    <h3>Specialist In :</h3>
-                    <span>Specialisted Area</span>
-
+        $sql = "SELECT * FROM Doctors";
+        $result = mysqli_query($conn, $sql);
+        while ($data = mysqli_fetch_array($result)) {
+        ?>
+            <!-- New Card -->
+            <div class="card">
+                <div class="imgBx">
+                    <img src="imgs/Logo.png" alt="Doctor-Image">
                 </div>
 
-                <div class="spec">
+                <div class="contentBx">
 
-                    <h3>Hospital :</h3>
-                    <span>Ragama District</span>
+                    <h2>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h2>
 
+                    <div class="spec">
+                        <h3>Specialist In :</h3>
+                        <span><?php echo $data['Specialization']; ?></span>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <h3>Hospital :</h3>
+                        <span>Ragama District</span>
+
+                    </div>
+                    <a href="#">View Patitents</a>
                 </div>
-                <a href="#">View Patitents</a>
             </div>
-
-        </div>
-        <!-- New Card -->
-
-        <div class="card">
-            <div class="imgBx">
-                <img src="imgs/Logo.png" alt="Doctor-Image">
-            </div>
-
-            <div class="contentBx">
-
-                <h2>Dr. Ranush Vimantha</h2>
-
-                <div class="spec">
-                    <h3>Specialist In :</h3>
-                    <span>Specialisted Area</span>
-
-                </div>
-
-                <div class="spec">
-
-                    <h3>Hospital :</h3>
-                    <span>Ragama District</span>
-
-                </div>
-                <a href="#">View Patitents</a>
-            </div>
-
-        </div>
-
-                <!-- New Card -->
-
-                <div class="card">
-            <div class="imgBx">
-                <img src="imgs/Logo.png" alt="Doctor-Image">
-            </div>
-
-            <div class="contentBx">
-
-                <h2>Dr. Ranush Vimantha</h2>
-
-                <div class="spec">
-                    <h3>Specialist In :</h3>
-                    <span>Specialisted Area</span>
-
-                </div>
-
-                <div class="spec">
-
-                    <h3>Hospital :</h3>
-                    <span>Ragama District</span>
-
-                </div>
-                <a href="#">View Patitents</a>
-            </div>
-
-        </div>
-
-                <!-- New Card -->
-
-                <div class="card">
-            <div class="imgBx">
-                <img src="imgs/Logo.png" alt="Doctor-Image">
-            </div>
-
-            <div class="contentBx">
-
-                <h2>Dr. Ranush Vimantha</h2>
-
-                <div class="spec">
-                    <h3>Specialist In :</h3>
-                    <span>Specialisted Area</span>
-
-                </div>
-
-                <div class="spec">
-
-                    <h3>Hospital :</h3>
-                    <span>Ragama District</span>
-
-                </div>
-                <a href="#">View Patitents</a>
-            </div>
-
-        </div>
-
-                <!-- New Card -->
-
-                <div class="card">
-            <div class="imgBx">
-                <img src="imgs/Logo.png" alt="Doctor-Image">
-            </div>
-
-            <div class="contentBx">
-
-                <h2>Dr. Ranush Vimantha</h2>
-
-                <div class="spec">
-                    <h3>Specialist In :</h3>
-                    <span>Specialisted Area</span>
-
-                </div>
-
-                <div class="spec">
-
-                    <h3>Hospital :</h3>
-                    <span>Ragama District</span>
-
-                </div>
-                <a href="#">View Patitents</a>
-            </div>
-
-        </div>
-
+        <?php
+        }
+        ?>
     </div>
+
     <?php include('footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
