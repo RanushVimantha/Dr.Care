@@ -1,6 +1,7 @@
+
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,16 @@
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="styles/header.css">
-        
-    <!-- ===== Boxicons CSS ===== -->
+
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-     <title>Responsive Navigation Menu Bar</title>
+    <title>Responsive Navigation Menu Bar</title>
 </head>
+
 <body>
     <nav>
         <div class="nav-bar">
-            <i class='bx bx-menu sidebarOpen' ></i>
+            <i class='bx bx-menu sidebarOpen'></i>
             <span class="logo navLogo"><a href="#">DR.Care</a></span>
 
             <div class="menu">
@@ -31,7 +32,7 @@
                     <li><a href="#">Patients</a></li>
                     <li><a href="#">My Profile</a></li>
                     <li><a href="doctors_profiles.php">Doctors</a></li>
-                    
+
                 </ul>
             </div>
 
@@ -42,102 +43,103 @@
                 </div>
 
                 <div class="searchBox">
-                   <div class="searchToggle">
-                    <i class='bx bx-x cancel'></i>
-                    <i class='bx bx-search search'></i>
-                   </div>
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>
+                        <i class='bx bx-search search'></i>
+                    </div>
 
                     <div class="search-field">
                         <input type="text" placeholder="Search...">
                         <i class='bx bx-search'></i>
                     </div>
+                    <ul class="suggestions"></ul>
                 </div>
             </div>
         </div>
     </nav>
+    
+    <script src="js/script.js"></script>
 
-<script>
+    <script>
+        const body = document.querySelector("body"),
+            nav = document.querySelector("nav"),
+            modeToggle = document.querySelector(".dark-light"),
+            searchToggle = document.querySelector(".searchToggle"),
+            sidebarOpen = document.querySelector(".sidebarOpen"),
+            siderbarClose = document.querySelector(".siderbarClose");
+        footer = document.querySelector("footer");
 
-const body = document.querySelector("body"),
-      nav = document.querySelector("nav"),
-      modeToggle = document.querySelector(".dark-light"),
-      searchToggle = document.querySelector(".searchToggle"),
-      sidebarOpen = document.querySelector(".sidebarOpen"),
-      siderbarClose = document.querySelector(".siderbarClose");
-      footer = document.querySelector("footer");
-
-      let getMode = localStorage.getItem("mode");
-          if(getMode && getMode === "dark-mode"){
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark-mode") {
             body.classList.add("dark");
-          }
-
-// js code to toggle dark and light mode
-      modeToggle.addEventListener("click" , () =>{
-        modeToggle.classList.toggle("active");
-        body.classList.toggle("dark");
-        footer.classList.toggle("dark");
-
-        // js code to keep user selected mode even page refresh or file reopen
-        if(!body.classList.contains("dark")){
-            localStorage.setItem("mode" , "light-mode");
-        }else{
-            localStorage.setItem("mode" , "dark-mode");
         }
-        if(!footer.classList.contains("dark")){
-            localStorage.setItem("mode" , "light-mode");
-        }else{
-            localStorage.setItem("mode" , "dark-mode");
-        }
-      });
 
-// js code to toggle search box
-        searchToggle.addEventListener("click" , () =>{
-        searchToggle.classList.toggle("active");
-      });
- 
-      
-//   js code to toggle sidebar
-sidebarOpen.addEventListener("click" , () =>{
-    nav.classList.add("active");
-});
+        // js code to toggle dark and light mode
+        modeToggle.addEventListener("click", () => {
+            modeToggle.classList.toggle("active");
+            body.classList.toggle("dark");
+            footer.classList.toggle("dark");
 
-body.addEventListener("click" , e =>{
-    let clickedElm = e.target;
+            // js code to keep user selected mode even page refresh or file reopen
+            if (!body.classList.contains("dark")) {
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                localStorage.setItem("mode", "dark-mode");
+            }
+            if (!footer.classList.contains("dark")) {
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                localStorage.setItem("mode", "dark-mode");
+            }
+        });
 
-    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-        nav.classList.remove("active");
-    }
-});
+        // js code to toggle search box
+        searchToggle.addEventListener("click", () => {
+            searchToggle.classList.toggle("active");
+        });
 
-</script>
 
-<script>
-(function() {
-    const body = document.body;
-    const modeToggle = document.querySelector('.dark-light');
-    const currentMode = localStorage.getItem('mode');
+        //   js code to toggle sidebar
+        sidebarOpen.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
 
-    // Apply the saved mode immediately, without waiting for the DOM to fully load
-    if (currentMode === 'dark-mode') {
-        body.classList.add('dark');
-    }
+        body.addEventListener("click", e => {
+            let clickedElm = e.target;
 
-    // Function to toggle dark/light mode
-    function toggleMode() {
-        const isDarkMode = body.classList.toggle('dark');
-        localStorage.setItem('mode', isDarkMode ? 'dark-mode' : 'light-mode');
-    }
+            if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
 
-    // Ensure modeToggle exists to prevent errors on pages without the toggle button
-    if (modeToggle) {
-        modeToggle.addEventListener('click', toggleMode);
-    }
+    <script>
+        (function() {
+            const body = document.body;
+            const modeToggle = document.querySelector('.dark-light');
+            const currentMode = localStorage.getItem('mode');
 
-    // Optional: Extend mode toggling to other parts of the page if needed
-    // Here you could add logic to toggle classes on the footer or any other components
-}());
-</script>
+            // Apply the saved mode immediately, without waiting for the DOM to fully load
+            if (currentMode === 'dark-mode') {
+                body.classList.add('dark');
+            }
 
+            // Function to toggle dark/light mode
+            function toggleMode() {
+                const isDarkMode = body.classList.toggle('dark');
+                localStorage.setItem('mode', isDarkMode ? 'dark-mode' : 'light-mode');
+            }
+
+            // Ensure modeToggle exists to prevent errors on pages without the toggle button
+            if (modeToggle) {
+                modeToggle.addEventListener('click', toggleMode);
+            }
+
+            // Optional: Extend mode toggling to other parts of the page if needed
+            // Here you could add logic to toggle classes on the footer or any other components
+        }());
+    </script>
 
 </body>
+
 </html>

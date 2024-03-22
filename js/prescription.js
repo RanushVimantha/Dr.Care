@@ -2,7 +2,7 @@ $(document).ready(function () {
     Date.prototype.calcDate = function (days) {
         let date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
-        return `(Until ${date.getUTCDate()}-${date.getUTCMonth() + 1}-${date.getUTCFullYear()})`;
+        return `Until ${date.getUTCDate()}-${date.getUTCMonth() + 1}-${date.getUTCFullYear()}`;
     };
 
     let timeout;
@@ -117,6 +117,8 @@ $(document).ready(function () {
         if (days) {
             let date = new Date().calcDate(days);
             span.html(date);
+            // Update med_period value with date
+            $(this).data("med_period", date);
         } else {
             span.html("(Invalid time period)");
         }
@@ -156,7 +158,8 @@ $(document).ready(function () {
             let med_name = $(this).find(".med_name").val();
             let sc_time = $(this).find(".sc").val();
             let meal = $(this).find(".meal").val();
-            let med_period = $(this).find(".med_period").val();
+            // Get med_period value from data attribute
+            let med_period = $(this).find(".med_period").data("med_period");
 
             medications.push({
                 med_name: med_name,
