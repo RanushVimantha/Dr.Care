@@ -253,7 +253,7 @@ body.dark .search-field i{
             top: 100%;
             left: 0;
             width: 100%;
-            background-color: #242526;
+            background-color: #2C2842;
             border-top: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
@@ -261,6 +261,11 @@ body.dark .search-field i{
             z-index: 1000;
             display: none; /* Initially hide the results */
         }
+
+        .dark .suggestions {
+            background-color: #242526;
+        }
+        
 
         .suggestions li {
             color: #f1f1f1;

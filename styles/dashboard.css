@@ -3,7 +3,6 @@
 /* Color Variables */
 :root {
   --bali-hai: #8b91b3;
-  --burning-orange: #ff7739;
   --catskill-white: #e3edf2;
   --fountain-blue: #5db0c6;
   --martinique: #2c324b;
@@ -38,7 +37,7 @@ button {
 }
 
 .button--add {
-  background: var(--burning-orange);
+  background: #14BDCB;
   box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
   color: var(--white);
   transition: background 0.3s ease;
@@ -51,7 +50,7 @@ button {
 }
 
 .button--add:focus {
-  background: darken(var(--burning-orange), 10%);
+  background: darken(#14BDCB), 10%);
 }
 
 
@@ -68,7 +67,15 @@ a {
   padding: 1em;
   position: relative;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.01s ease;
+}
+
+.dark a {
+  color: #a7a7a7;
+}
+
+.dark a:hover {
+  color: #eeeeee;
 }
 
 a:before {
@@ -89,8 +96,10 @@ a:before {
   max-width: 900px;
   margin: 2.5em auto;
   margin-top: 150px;
+}
 
-
+.dark .container {
+  background-color: #1e1e1f;
 }
 
 .icon {
@@ -126,10 +135,20 @@ svg {
   border-bottom-left-radius: 10px;
 }
 
+.dark .sidebar--admin {
+  background-color: #1e1e1f;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
 .main--team {
   background-color: var(--rhino);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.dark .main--team {
+  background-color: #222222;
 }
 
 section {
@@ -218,18 +237,8 @@ section {
   text-align: left;
 }
 
-.profile-button2 {
-  display: flex;
-  background: none;
-  background-color: aliceblue;
-  width: 280px;
-  height: 60px;
-  border: none;
-  border-radius: 10px;
-  padding: 0px;
-  cursor: pointer;
-  outline: none;
-  text-align: left;
+.dark .profile-button {
+  background-color: #313131;
 }
 
 .profile-content {
@@ -252,16 +261,23 @@ section {
   font-size: 1em;
 }
 
+.dark .button-text {
+  color: #FFFFFF;
+}
+
 /* New */
 
 .has-top-border {
   background-color: #433F57;
   overflow: auto;
-  white-space: nowrap;
+  white-space: wrap;
   height: 500px;
   margin: 20px;
   border-radius: 10px;
+}
 
+.dark .has-top-border {
+  background-color: #313131;
 }
 
 .recent-patients {
@@ -270,7 +286,11 @@ section {
   margin-bottom: -30px;
 }
 
-.recent-patients-text{
+.dark .recent-patients {
+  background: #434343;
+}
+
+.recent-patients-text {
   padding: 5px 10px 5px 10px;
 }
 
@@ -284,8 +304,9 @@ section {
   .main--team {
     width: 100%;
   }
+
   .button-text {
-    color: indigo;
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
+  
 }

@@ -77,7 +77,7 @@ if (!isset($_SESSION['DoctorID'])) {
             <button class="button button--add">My Profile</button>
         </div>
         <div class="main main--team">
-            <section style="background-color: var(--rhino);">
+            <section>
                 <?php
                 if (isset($_SESSION["create"])) {
                 ?>
@@ -126,7 +126,7 @@ if (!isset($_SESSION['DoctorID'])) {
                                 </div>
                             </div>
                         </button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <button class="profile-button2">
+                        <button class="profile-button">
                             <div class="profile-content">
                                 <div class="number-avatar">
                                     <img src="imgs/Logo.png" alt="Add a New Patient" class="profile-image">
