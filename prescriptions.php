@@ -46,52 +46,113 @@ if (!isset($_SESSION['DoctorID'])) {
     <div class="container">
 
         <div class="main main--team">
-            <section class="prescription-letterhead">
+            <?php
+            // Linking Database.php
+            require "db/DataBase.php";
+            $database = new DataBase();
+            $conn = $database->dbConnect();
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $id = $_GET['id'];
 
-                <h2> Piliyandala Medical Center </h2>
-                
-                <div class="letterhead-info">
-                    <div class="doctor-name">
-                        <h4>Dr.Ranush Vimantha</h4>
-                    </div>
+            if ($id) {
+                $sql = "SELECT 
+                            D.FirstName AS DoctorFirstName, 
+                            D.LastName AS DoctorLastName, 
+                            P.*, 
+                            MR.DateAdded,
+                            TIMESTAMPDIFF(YEAR, P.DateOfBirth, CURDATE()) AS Age
+                        FROM 
+                            Appointments A
+                        INNER JOIN 
+                            MedicalRecords MR ON A.RecordID = MR.RecordID
+                        INNER JOIN 
+                            Doctors D ON A.DoctorID = D.DoctorID
+                        INNER JOIN 
+                            Patients P ON A.PatientID = P.PatientID
+                    
+                        WHERE 
+                            A.RecordID = $id";
 
-                    <div class="date">
-                        <h4>Date: 03/22/2024</h4>
-                    </div>
-                </div>
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+            ?>
+                    <section class="prescription-letterhead">
 
-                
-            </section>
+                        <h2> Piliyandala Medical Center </h2>
+
+                        <div class="letterhead-info">
+                            <div class="doctor-name">
+                                <h4>Dr. <?php echo $row["DoctorFirstName"]; ?> <?php echo $row["DoctorLastName"]; ?></h4>
+                            </div>
+
+                            <div class="date">
+                                <h4><?php echo $row['DateAdded']; ?></h4>
+                            </div>
+                        </div>
+                    </section>
 
 
-            <section class="info-border">
-                <section class ="contact">
-                    <h5> Contact: 074-777-2222</h5>
-                </section>
-                <div class="divider">
-                
-                </div>
-                <section class="email">
-                    <h5> Email: deadline24th@gmail.com</h5>
-                </section>
+                    <section class="info-border">
+                        <section class="contact">
+                            <h5> Contact: 074-777-2222</h5>
+                        </section>
+                        <div class="divider">
 
-            </section>
+                        </div>
+                        <section class="email">
+                            <h5> Email: <?php echo $row['Email']; ?></h5>
+                        </section>
 
-            <section class="prescription-details">
-                <div class="prescription-details-box">
-                    <h3>Where is Achira??</h3>
-                    <h3>Where is Achira??</h3>
-                    <h3>Where is Achira??</h3>
-                    <h3>Where is Achira??</h3>
-                    <h3>Where is Achira??</h3>
-                </div>
-            </section>
+                    </section>
+
+                    <section class="prescription-details">
+                        <div class="prescription-details-box">
+                            <!--  Patient Information -->
+                            <div class="patient">
+                                <div class="patientName">
+                                    <h4><?php echo $row["FirstName"]; ?> <?php echo $row["LastName"]; ?></h4>
+                                </div>
+                                <div class="patientName"></div>
+                                <div class="patientAge">
+                                    <h5>Age: <?php echo $row['Age']; ?> Years</h5>
+                                </div>
+                            </div>
+
+                            <!-- Prescription Details -->
+                            <?php
+                            $prescription_sql = "SELECT * FROM PrescriptionDetails WHERE RecordID = $id";
+                            $prescription_result = mysqli_query($conn, $prescription_sql);
+                            while ($prescription_row = mysqli_fetch_array($prescription_result)) {
+                            ?>
+                                <div class="Meds">
+                                    <div class="MedName">
+                                        <h5><?php echo $prescription_row['MedName']; ?></h5>
+                                        <p><?php echo $prescription_row['ScTime']; ?></p>
+                                    </div>
+                                    <div class="MedName"></div>
+                                    <div class="Meal">
+                                        <h6><?php echo $prescription_row['Meal']; ?></h6>
+                                        <p><?php echo $prescription_row['MedPeriod']; ?></p>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </section>
+            <?php
+                }
+            }
+            ?>
 
             <button class="button button--add">Print</button>
-    
+
 
         </div>
     </div>
+
     <?php include('footer.php'); ?>
 </body>
 

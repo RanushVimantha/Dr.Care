@@ -125,7 +125,7 @@ if (!isset($_SESSION['DoctorID'])) {
     <div class="med">&#x26AB;<input class="med_name" data-med_id="{{ med_id }}" data-toggle="tooltip" title="Click to edit..." placeholder="Enter medicine name">
             <div class="med_name_action"><button class="btn btn-sm btn-success save" data-med_id="{{ med_id }}">Save</button><button class="btn btn-sm btn-danger cancel-btn">Cancel</button></div>
             <div class="schedual">
-                <div class="sc_time folded"><select class="sc" data-med_id="{{ med_id }}"><option value="1+1+1" selected="">1+1+1</option><option value="1+0+1">1+0+1</option><option value="0+1+1">0+1+1</option><option value="1+0+0">1+0+0</option><option value="0+0+1">0+0+1</option><option value="1+1+1+1">1+1+1+1</option></select>
+                <div class="sc_time folded"><select class="sc" data-med_id="{{ med_id }}"><option value="morning + noon + night" selected="">1+1+1</option><option value="morning + night">1+0+1</option><option value="noon + night">0+1+1</option><option value="morning">1+0+0</option><option value="night">0+0+1</option><option value="breakfast + lunch + supper + bedtime">1+1+1+1</option></select>
                     <div
                         class="med_when_action"><button class="btn btn-sm btn-success save" data-med_id="{{ med_id }}">&amp;check;</button></div>
             </div>

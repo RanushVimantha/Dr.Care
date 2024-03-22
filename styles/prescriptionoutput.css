@@ -34,31 +34,31 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-	border: none;
+  border: none;
   border-radius: 50px;
-	padding: 0.575em 3.25em;
-	-webkit-appearance: none;
-  }
-  
-  .button--add {
-	
-	background: #14BDCB;
+  padding: 0.575em 3.25em;
+  -webkit-appearance: none;
+}
+
+.button--add {
+
+  background: #14BDCB;
   align-self: flex-end;
-	box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
-	color: var(--white);
-	transition: background 0.3s ease;
-	margin-top: 10px;
+  box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+  color: var(--white);
+  transition: background 0.3s ease;
+  margin-top: 10px;
   margin-bottom: 30px;
-	margin-right: 65px;
-  }
-  
-  .button--add:hover {
-	transform: scale(1.12);
-  }
-  
-  .button--add:focus {
-	background: darken(#14BDCB), 10%;
-  }
+  margin-right: 65px;
+}
+
+.button--add:hover {
+  transform: scale(1.12);
+}
+
+.button--add:focus {
+  background: darken(#14BDCB), 10%;
+}
 
 
 
@@ -92,6 +92,7 @@ a:before {
 .container {
   box-shadow: rgba(29, 29, 31, 0.25) 0 10px 60px;
   display: flex;
+  height: auto;
   max-width: 900px;
   margin: 2.5em auto;
   margin-top: 150px;
@@ -122,6 +123,7 @@ svg {
 
 .main {
   width: 100%;
+  height: auto;
 
 
 }
@@ -285,47 +287,88 @@ section {
 }
 
 .prescription-letterhead h2 {
-    font-size: 32px;
-    font-weight: bolder;
+  font-size: 32px;
+  font-weight: bolder;
 
 }
 
-.letterhead-info .doctor-name h4:hover{
-    color: cyan;
+.letterhead-info .doctor-name h4:hover {
+  color: cyan;
 }
 
 .letterhead-info {
-    display: flex;
-    height: 180px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  height: 180px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.letterhead-info .doctor-name h4{
-    font-size: 18px;
+.letterhead-info .doctor-name h4 {
+  font-size: 18px;
 }
 
-.letterhead-info .date h4{
-    font-size: 18px;
+.letterhead-info .date h4 {
+  font-size: 18px;
 }
+
 .prescription-details {
   background-color: #433F57;
-  white-space: nowrap;
-  height: 500px;
+  height: auto;
   margin: 20px auto;
   width: 85%;
   border-radius: 10px;
 }
 
-.prescription-details-box{
-    background-color: white;
-    color: black;
-    overflow: auto;
-    white-space: nowrap;
-    height: 410px;
-    margin: 20px auto;
-    width: 100%;
-    border-radius: 10px;
+.prescription-details-box {
+  background-color: white;
+  color: black;
+  padding: 1.2em;
+  height: auto;
+  margin: 20px auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Patient Information */
+
+.patient {
+  display: flex;
+  width: 100%;
+}
+
+.patientName {
+  width: 100%;
+  margin: 0;
+}
+
+.patientAge {
+  text-align: right;
+  width: 50%;
+  margin: 0;
+
+}
+
+/* Meds */
+
+.Meds {
+  background-color: #5d6091;
+  border-radius: 15px;
+  margin: 10px 0;
+  padding: 1.5em;
+  display: flex;
+  width: 100%;
+}
+
+.MedName {
+  width: 100%;
+  margin: 0;
+}
+
+.Meal {
+  text-align: right;
+  width: 50%;
+  margin: 0;
+
 }
 
 .info-border {
@@ -363,22 +406,23 @@ section {
 }
 
 .info-border .email .h5 {
-    margin-left: -30px;
+  margin-left: -30px;
 }
 
 .divider {
-    background-color: white;
-    width: 0.185rem;
-    height: 2.5rem;
-    margin-right: 30px;
+  background-color: white;
+  width: 0.185rem;
+  height: 2.5rem;
+  margin-right: 30px;
 }
+
 .recent-patients {
   background-color: var(--catskill-white);
   border-radius: 10px;
   margin-bottom: -30px;
 }
 
-.recent-patients-text{
+.recent-patients-text {
   padding: 5px 10px 5px 10px;
 }
 
@@ -391,7 +435,9 @@ section {
 
   .main--team {
     width: 100%;
+    height: auto;
   }
+
   .button-text {
     color: indigo;
     font-size: 0.8em;
@@ -412,7 +458,7 @@ section {
     margin-top: 10px;
   }
 
-  .info-border .contact{
+  .info-border .contact {
     margin: 0;
   }
 
@@ -421,40 +467,40 @@ section {
 
   }
 
-  .prescription-letterhead{
+  .prescription-letterhead {
     height: 220px;
   }
 
-  .prescription-letterhead h2{
+  .prescription-letterhead h2 {
     text-wrap: wrap;
     font-size: 2rem;
   }
 
-  .letterhead-info{
+  .letterhead-info {
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: auto;    
+    height: auto;
   }
 
-  .letterhead-info .doctor-name{
+  .letterhead-info .doctor-name {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: auto; 
+    height: auto;
   }
 
-  .letterhead-info .doctor-name h4{
+  .letterhead-info .doctor-name h4 {
     font-size: 20px;
     font-weight: bolder;
   }
 
-  .letterhead-info .date{
+  .letterhead-info .date {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: auto; 
+    height: auto;
   }
 
   .button--add {
@@ -466,7 +512,8 @@ section {
     margin: 0;
     margin-bottom: 20px;
   }
-  .button{
+
+  .button {
     justify-content: center;
     justify-items: center;
     align-items: center;
