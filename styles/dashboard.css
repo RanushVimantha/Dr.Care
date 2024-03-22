@@ -145,8 +145,6 @@ svg {
   background-color: var(--rhino);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .dark .main--team {
@@ -239,8 +237,16 @@ section {
   text-align: left;
 }
 
+.profile-button:hover {
+  background-color: rgb(192, 195, 215);
+}
+
 .dark .profile-button {
   background-color: #313131;
+}
+
+.dark .profile-button:hover {
+  background-color: #545454;
 }
 
 .profile-content {
@@ -274,17 +280,6 @@ section {
   overflow: auto;
   white-space: wrap;
   height: 500px;
-  margin: 20px auto;
-  width: 85%;
-  border-radius: 10px;
-}
-
-/* Prescription Page */
-.prescription-letterhead {
-  background-color: #433F57;
-  overflow: auto;
-  white-space: nowrap;
-  height: 200px;
   margin: 20px;
   border-radius: 10px;
 }
