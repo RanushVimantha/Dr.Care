@@ -3,6 +3,7 @@
 /* Color Variables */
 :root {
   --bali-hai: #8b91b3;
+  --burning-orange: #ff7739;
   --catskill-white: #e3edf2;
   --fountain-blue: #5db0c6;
   --martinique: #2c324b;
@@ -37,7 +38,7 @@ button {
 }
 
 .button--add {
-  background: #14BDCB;
+  background: var(--burning-orange);
   box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
   color: var(--white);
   transition: background 0.3s ease;
@@ -50,7 +51,7 @@ button {
 }
 
 .button--add:focus {
-  background: darken(#14BDCB), 10%;
+  background: darken(var(--burning-orange), 10%);
 }
 
 
@@ -67,15 +68,7 @@ a {
   padding: 1em;
   position: relative;
   text-decoration: none;
-  transition: all 0.01s ease;
-}
-
-.dark a {
-  color: #a7a7a7;
-}
-
-.dark a:hover {
-  color: #eeeeee;
+  transition: all 0.3s ease;
 }
 
 a:before {
@@ -96,10 +89,7 @@ a:before {
   max-width: 900px;
   margin: 2.5em auto;
   margin-top: 150px;
-}
 
-.dark .container {
-  background-color: #1e1e1f;
 }
 
 .icon {
@@ -135,22 +125,12 @@ svg {
   border-bottom-left-radius: 10px;
 }
 
-.dark .sidebar--admin {
-  background-color: #1e1e1f;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
 .main--team {
   background-color: var(--rhino);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-}
-
-.dark .main--team {
-  background-color: #222222;
 }
 
 section {
@@ -239,8 +219,18 @@ section {
   text-align: left;
 }
 
-.dark .profile-button {
-  background-color: #313131;
+.profile-button2 {
+  display: flex;
+  background: none;
+  background-color: aliceblue;
+  width: 280px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  padding: 0px;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
 }
 
 .profile-content {
@@ -263,16 +253,10 @@ section {
   font-size: 1em;
 }
 
-.dark .button-text {
-  color: #FFFFFF;
-}
-
-/* New */
-
 .has-top-border {
   background-color: #433F57;
   overflow: auto;
-  white-space: wrap;
+  white-space: nowrap;
   height: 500px;
   margin: 20px auto;
   width: 85%;
@@ -282,28 +266,109 @@ section {
 /* Prescription Page */
 .prescription-letterhead {
   background-color: #433F57;
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
   height: 200px;
   margin: 20px;
   border-radius: 10px;
+  text-align: center;
 }
 
-.dark .has-top-border {
-  background-color: #313131;
+.prescription-letterhead h2 {
+    font-size: 32px;
+    font-weight: bolder;
+
 }
 
+.letterhead-info .doctor-name h4:hover{
+    color: cyan;
+}
+
+.letterhead-info {
+    display: flex;
+    height: 180px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.letterhead-info .doctor-name h4{
+    font-size: 18px;
+}
+
+.letterhead-info .date h4{
+    font-size: 18px;
+}
+.prescription-details {
+  background-color: #433F57;
+  white-space: nowrap;
+  height: 500px;
+  margin: 20px auto;
+  width: 85%;
+  border-radius: 10px;
+}
+
+.prescription-details-box{
+    background-color: white;
+    color: black;
+    overflow: auto;
+    white-space: nowrap;
+    height: 410px;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info-border {
+  background-color: #433F57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 70px;
+  margin: 20px auto;
+  width: 85%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.info-border .email {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  text-align: center;
+
+}
+
+.info-border .contact {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  text-align: center;
+  border-radius: 0px;
+}
+
+.info-border .email .h5 {
+    margin-left: -30px;
+}
+
+.divider {
+    background-color: white;
+    width: 0.185rem;
+    height: 2.5rem;
+    margin-right: 30px;
+}
 .recent-patients {
   background-color: var(--catskill-white);
   border-radius: 10px;
   margin-bottom: -30px;
 }
 
-.dark .recent-patients {
-  background: #434343;
-}
-
-.recent-patients-text {
+.recent-patients-text{
   padding: 5px 10px 5px 10px;
 }
 
@@ -317,9 +382,70 @@ section {
   .main--team {
     width: 100%;
   }
-
   .button-text {
-    font-size: 0.7em;
+    color: indigo;
+    font-size: 0.8em;
   }
-  
+
+  .info-border {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto;
+  }
+
+  .info-border .divider {
+    display: flex;
+    width: 300px;
+    height: 3px;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .info-border .contact{
+    margin: 0;
+  }
+
+  .info-border .email {
+    margin-top: 20px;
+
+  }
+
+  .prescription-letterhead{
+    height: 220px;
+  }
+
+  .prescription-letterhead h2{
+    text-wrap: wrap;
+    font-size: 2rem;
+  }
+
+  .letterhead-info{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto;    
+  }
+
+  .letterhead-info .doctor-name{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto; 
+  }
+
+  .letterhead-info .doctor-name h4{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  .letterhead-info .date{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto; 
+  }
+
+
 }
