@@ -179,7 +179,7 @@ nav .nav-bar .logo a{
 .searchBox .search-field{
     position: absolute;
     bottom: -85px;
-    right: 5px;
+    right: 95px;
     height: 50px;
     width: 300px;
     display: flex;
@@ -194,7 +194,8 @@ nav .nav-bar .logo a{
 }
 
 .searchToggle.active ~ .search-field{
-    bottom: -74px;
+    bottom: -9px;
+    right: 95px;
     opacity: 1;
     pointer-events: auto;
 }
@@ -220,7 +221,7 @@ nav .nav-bar .logo a{
     border-radius: 4px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--search-text);
+    color: #e4e4e4;;
     background-color: var(--search-bar);
 }
 
@@ -242,6 +243,49 @@ body.dark .search-field input{
 body.dark .search-field i{
     color: var(--text-color);
 }
+
+/* Suggestions */
+
+        /* Additional CSS for search results */
+        .suggestions {
+            position: absolute;
+            list-style-type: none; 
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #242526;
+            border-top: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+            display: none; /* Initially hide the results */
+        }
+
+        .suggestions li {
+            color: #f1f1f1;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggestions li:hover {
+            background-color: #181818;
+        }
+
+        .suggestions li:first-child {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .suggestions li:last-child {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .suggestions li:not(:last-child) {
+            border-bottom: 1px solid #575757;
+        }
 
 @media (max-width: 790px) {
     nav .nav-bar .sidebarOpen{

@@ -52,8 +52,9 @@
                         <input type="text" placeholder="Search...">
                         <i class='bx bx-search'></i>
                     </div>
-                    <ul class="suggestions"></ul>
+                    
                 </div>
+                <ul class="suggestions" style="margin-top: -20px;"></ul>
             </div>
         </div>
     </nav>
