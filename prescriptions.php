@@ -86,6 +86,8 @@ if (!isset($_SESSION['DoctorID'])) {
                     <h3>Where is Achira??</h3>
                 </div>
             </section>
+
+            <button class="button button--add">Print</button>
     
 
         </div>

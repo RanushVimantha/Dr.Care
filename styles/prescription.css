@@ -1,6 +1,31 @@
 body {
 	transition: all 0.3s ease;
 }
+
+button {
+	border: none;
+	border-radius: 50px;
+	padding: 0.875em 3.25em;
+	-webkit-appearance: none;
+  }
+  
+  .button--add {
+	background: #14BDCB;
+	box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+	color: var(--white);
+	transition: background 0.3s ease;
+	margin-top: 40px;
+	margin-left: 30px;
+  }
+  
+  .button--add:hover {
+	transform: scale(1.12);
+  }
+  
+  .button--add:focus {
+	background: darken(#14BDCB), 10%;
+  }
+
 .wrapper {
 	height: 100vh;
 	width: 100vw;

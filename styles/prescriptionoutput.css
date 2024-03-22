@@ -30,29 +30,35 @@ body {
   background-color: var(--rhino);
 }
 
-button {
-  border: none;
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	border: none;
   border-radius: 50px;
-  padding: 0.875em 3.25em;
-  -webkit-appearance: none;
-}
-
-.button--add {
-  background: var(--burning-orange);
-  box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
-  color: var(--white);
-  transition: background 0.3s ease;
-  margin-top: 40px;
-  margin-left: 30px;
-}
-
-.button--add:hover {
-  transform: scale(1.12);
-}
-
-.button--add:focus {
-  background: darken(var(--burning-orange), 10%);
-}
+	padding: 0.575em 3.25em;
+	-webkit-appearance: none;
+  }
+  
+  .button--add {
+	
+	background: #14BDCB;
+  align-self: flex-end;
+	box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+	color: var(--white);
+	transition: background 0.3s ease;
+	margin-top: 10px;
+  margin-bottom: 30px;
+	margin-right: 65px;
+  }
+  
+  .button--add:hover {
+	transform: scale(1.12);
+  }
+  
+  .button--add:focus {
+	background: darken(#14BDCB), 10%;
+  }
 
 
 
@@ -89,6 +95,7 @@ a:before {
   max-width: 900px;
   margin: 2.5em auto;
   margin-top: 150px;
+  margin-bottom: 30px;
 
 }
 
@@ -126,6 +133,9 @@ svg {
 }
 
 .main--team {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--rhino);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
@@ -445,6 +455,22 @@ section {
     flex-wrap: wrap;
     justify-content: space-around;
     height: auto; 
+  }
+
+  .button--add {
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 0.575em 50%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .button{
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
   }
 
 

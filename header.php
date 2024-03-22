@@ -30,7 +30,7 @@
                 <ul class="nav-links">
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li><a href="#">Patients</a></li>
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="MyProfile.php">My Profile</a></li>
                     <li><a href="doctors_profiles.php">Doctors</a></li>
 
                 </ul>
