@@ -109,7 +109,7 @@ if (isset($_POST['print_pdf'])) {
             ?>
                     <section class="prescription-letterhead">
 
-                        <h2> Piliyandala Medical Center </h2>
+                        <h2> Medical Prescription </h2>
 
                         <div class="letterhead-info">
                             <div class="doctor-name">

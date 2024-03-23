@@ -70,7 +70,7 @@ function generatePDF($html)
                 while ($row = mysqli_fetch_array($result)) {
             ?>
                     <section class="prescription-letterhead" style="background-color: #433F57; overflow: hidden; white-space: nowrap; height: 200px; margin: 0 20px; border-radius: 10px; text-align: center;">
-                        <h2 style="font-size: 32px; font-weight: bolder; padding-top: 30px;"> Piliyandala Medical Center </h2>
+                        <h2 style="font-size: 32px; font-weight: bolder; padding-top: 30px;"> Medical Prescription </h2>
                         <div class="letterhead-info" style="display: flex; height: 180px; align-items: center; justify-content: space-between;">
                             <div class="doctor-name">
                                 <h4 style="font-size: 22px; margin: 5px 15px;">Dr. <?php echo $row["DoctorFirstName"]; ?> <?php echo $row["DoctorLastName"]; ?></h4>
