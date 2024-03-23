@@ -88,10 +88,26 @@ if (!isset($_SESSION['DoctorID'])) {
                 <h5>Asiri Hospital</h5>
             </div>
             <div class="doctor-description">
-                Doctorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr rrrrrrrrrrrrrrrrrrrrrrrrrrrr whyyyyyyyyyyyyyyyyyyyy  yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+                28 Years Old Doctor with PHD Degree and A Specialist on Mental Disorder
             </div>
             <div class="experience">
-                20+ Years of experience
+                Experience: 20+ Years 
+            </div>
+            <div class="doctor-contact">
+                Contact: 0777-222-3333
+            </div>
+
+            <div class="doctor-category">
+                <div class="category-list">
+                    <h6> Esports</h6>
+                </div>
+                <div class="category-list">
+                    <h6> Gaming</h6>
+                </div>
+                <div class="category-list">
+                    <h6> Content</h6>
+                </div>
+
             </div>
             
             </section>
