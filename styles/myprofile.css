@@ -135,6 +135,24 @@ svg {
   border-bottom-left-radius: 10px;
 }
 
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  background-color: #4c4678;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+.sidebar-button:hover {
+  background-color: #ffffff;
+}
+
+.sidebar-button .icon {
+  margin-right: 10px;
+}
 .dark .sidebar--admin {
   background-color: #1e1e1f;
   border-top-left-radius: 10px;
@@ -285,7 +303,26 @@ section {
 
 /*MyProfile Page*/
 
+.doctor-description {
+  display: flex;
+  height: auto;
+  width: 10px;
+  background-color: white;
+  flex-wrap: wrap;
+}
 
+.doctor-hospital {
+  display: flex;
+}
+.doctor-hospital h5 {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.experience {
+  display: flex;
+  margin-top: 30px;
+}
 /* Add mobile responsive styles here */
 @media (max-width: 768px) {
   .sidebar--admin {

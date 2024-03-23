@@ -3,3 +3,5 @@ db/DataBaseConfig.php
 db/DataBaseConfig.php
 
 /vendor/
+composer.lock
+composer.json

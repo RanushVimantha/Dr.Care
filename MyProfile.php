@@ -19,7 +19,7 @@ if (!isset($_SESSION['DoctorID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/myprofile.css">
-    <title>Patient List</title>
+    <title>My Profile</title>
     <link rel="icon" href="imgs/drcare.ico" type="image/x-icon">
 
     <style>
@@ -45,7 +45,12 @@ if (!isset($_SESSION['DoctorID'])) {
 
     <div class="container">
         <div class="sidebar sidebar--admin">
-            
+            <a href="#" class="sidebar-button">
+                <span class="icon">&#128101;</span> My Patients</a>      
+            <a href="#" class="sidebar-button">
+                <span class="icon">&#128100;</span> My Profile </a>
+            <a href="#" class="sidebar-button">
+                <span class="icon">&#128274;</span> Logout</a>                
         </div>
         
         <div class="main main--team">          
@@ -79,6 +84,15 @@ if (!isset($_SESSION['DoctorID'])) {
             <?php
             }
             ?>
+            <div class="doctor-hospital">
+                <h5>Asiri Hospital</h5>
+            </div>
+            <div class="doctor-description">
+                Doctorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr rrrrrrrrrrrrrrrrrrrrrrrrrrrr whyyyyyyyyyyyyyyyyyyyy  yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+            </div>
+            <div class="experience">
+                20+ Years of experience
+            </div>
             
             </section>
 
