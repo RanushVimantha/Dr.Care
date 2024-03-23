@@ -170,3 +170,6 @@ if (!isset($_SESSION['DoctorID'])) {
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>
