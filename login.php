@@ -21,7 +21,7 @@ if ($db->dbConnect()) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr-care</title>
+    <title>Login - DrCare</title>
     <link rel="stylesheet" href="styles/new_style.css">
 
   </head>
