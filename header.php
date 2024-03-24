@@ -19,7 +19,7 @@
     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen'></i>
-            <span class="logo navLogo"><a href="#">DR.Care</a></span>
+            <span class="logo navLogo"><a href="index.php">DR.Care</a></span>
 
             <div class="menu">
                 <div class="logo-toggle">
@@ -28,9 +28,9 @@
                 </div>
 
                 <ul class="nav-links">
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="index.php">Dashboard</a></li>
                     <li><a href="#">Patients</a></li>
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="MyProfile.php">My Profile</a></li>
                     <li><a href="doctors_profiles.php">Doctors</a></li>
 
                 </ul>

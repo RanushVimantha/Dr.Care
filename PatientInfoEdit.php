@@ -4,8 +4,8 @@ session_start();
 
 // Check if the user is not logged in, redirect to login.php
 if (!isset($_SESSION['DoctorID'])) {
-    header("Location: login.php");
-    exit();
+  header("Location: login.php");
+  exit();
 }
 ?>
 <!doctype html>
@@ -20,11 +20,13 @@ if (!isset($_SESSION['DoctorID'])) {
 </head>
 
 <body>
+  <?php include('header.php'); ?>
+  <script type="text/javascript" src="js/light-dark.js"></script>
 
   <div class="container my-5">
     <header class="d-flex justify-content-between my-4">
       <div>
-        <a href="index.php" class="btn btn-primary">Back</a>
+        <a href="index.php" class="btn btn-primary" style="margin-top: 100px;">Back</a>
       </div>
     </header>
 
@@ -174,6 +176,10 @@ if (!isset($_SESSION['DoctorID'])) {
       })
     })()
   </script>
+  <?php include('footer.php'); ?>
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

@@ -27,9 +27,9 @@ if (!isset($_SESSION['DoctorID'])) {
   <script type="text/javascript" src="js/light-dark.js"></script>
 
   <div class="container my-5">
-    <header class="d-flex justify-content-between my-4" >
+    <header class="d-flex justify-content-between my-4">
       <div>
-        <a href="index.php" class="btn btn-primary" style="margin-top: 100px;">Back</a>
+        <a href="index.php" class="btn btn-primary back-btn" style="margin-top: 100px;">Back</a>
       </div>
     </header>
 
@@ -37,28 +37,34 @@ if (!isset($_SESSION['DoctorID'])) {
       <form id="PatientInfo" name="PatientInfo" action="process.php" method="post" class="row g-3 needs-validation" novalidate>
         <h1>Patient Info</h1>
 
+        <div class="name">
+
         <!-- First Name -->
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" name="firstname" placeholder="Enter Your First Name" id="validationCustom01" required>
+          <input type="text" class="form-control pname" name="firstname" placeholder="Enter Your First Name" id="validationCustom01" required>
           <label for="floatingInput">First Name</label>
           <div class="invalid-feedback"> Should Enter the First Name! </div>
         </div>
+
+        <span style="margin-left: 1cm"></span>
 
         <!-- Second Name -->
 
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" name="lastname" placeholder="Enter Your Last Name" id="validationCustom02" required>
+          <input type="text" class="form-control pname" name="lastname" placeholder="Enter Your Last Name" id="validationCustom02" required>
           <label for="floatingInput">Last Name</label>
           <div class="invalid-feedback"> Should Enter the Last Name! </div>
+        </div>
+
         </div>
 
         <!-- Email -->
 
         <div class="form-floating mb-3">
           <input type="email" class="form-control" name="email" placeholder="Enter Your Email" id="validationCustom03" required>
-          <label for="floatingInput">Email address</label>
+          <label for="floatingInput" class="lable">Email address</label>
           <div class="invalid-feedback"> Should be a Valid Email! </div>
         </div>
 
@@ -79,15 +85,15 @@ if (!isset($_SESSION['DoctorID'])) {
         <span class="number">
 
           <label for="floatingInput">Phone Number : </label>
-          <input type="tel" id="validationCustom04" name="contactnumber" placeholder="094-778-91-5586" pattern="[0-9]{10}" required>
-          <div class="invalid-feedback"> Enter the Phone Number in this format ( 0778915586 )</div>
+          <input type="tel" class="telnumber" id="validationCustom04" name="contactnumber" placeholder="0778915586" pattern="[0-9]{10}" minlength="10" maxlength="10" required>
+          <div class="invalid-feedback"> Enter the Phone Number ( 0778915586 )</div>
         </span>
 
         <!-- DOB -->
 
         <span class="DOB">
           <label for="floatingInput">Date Of Birth : </label>
-          <input type="date" name="date" id="validationCustom04" required>
+          <input class="dateinput" type="date" name="date" id="validationCustom04" required>
           <div class="invalid-feedback"> Birth Date is Required! </div>
         </span>
 
@@ -113,8 +119,8 @@ if (!isset($_SESSION['DoctorID'])) {
 
         <!-- Submit -->
 
-        <div class="form-element my-4">
-          <input type="submit" name="create" value="Add Patient" class="btn btn-primary">
+        <div class="">
+          <input type="submit" name="create" value="Add Patient" class="button1">
         </div>
 
       </form>
@@ -125,7 +131,7 @@ if (!isset($_SESSION['DoctorID'])) {
     <div class="med">&#x26AB;<input class="med_name" data-med_id="{{ med_id }}" data-toggle="tooltip" title="Click to edit..." placeholder="Enter medicine name">
             <div class="med_name_action"><button class="btn btn-sm btn-success save" data-med_id="{{ med_id }}">Save</button><button class="btn btn-sm btn-danger cancel-btn">Cancel</button></div>
             <div class="schedual">
-                <div class="sc_time folded"><select class="sc" data-med_id="{{ med_id }}"><option value="1+1+1" selected="">1+1+1</option><option value="1+0+1">1+0+1</option><option value="0+1+1">0+1+1</option><option value="1+0+0">1+0+0</option><option value="0+0+1">0+0+1</option><option value="1+1+1+1">1+1+1+1</option></select>
+                <div class="sc_time folded"><select class="sc" data-med_id="{{ med_id }}"><option value="morning + noon + night" selected="">1+1+1</option><option value="morning + night">1+0+1</option><option value="noon + night">0+1+1</option><option value="morning">1+0+0</option><option value="night">0+0+1</option><option value="breakfast + lunch + supper + bedtime">1+1+1+1</option></select>
                     <div
                         class="med_when_action"><button class="btn btn-sm btn-success save" data-med_id="{{ med_id }}">&amp;check;</button></div>
             </div>
@@ -170,3 +176,6 @@ if (!isset($_SESSION['DoctorID'])) {
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

@@ -74,6 +74,9 @@ if (!isset($_SESSION['DoctorID'])) {
                         <p><?php echo $data["Diagnosis"]; ?></p>
                         <h3>Medications <?php echo $data['RecordID']; ?>:</h3>
                         <p><?php echo $data["Medications"]; ?></p>
+                        <div>
+                            <a href="prescriptions.php?id=<?php echo $data['RecordID']; ?>" class="btn btn-primary">View Prescription</a>
+                        </div>
             <?php
                     }
                 }
