@@ -60,7 +60,8 @@ if (!isset($_SESSION['DoctorID'])) {
             <?php
             }
             ?>
-            <button class="button button--add">My Profile</button>
+
+            <button class="button button--add" onclick="location.href='MyProfile.php'">My Profile</button>
         </div>
         <div class="main main--team">
             <section>
