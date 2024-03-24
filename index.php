@@ -108,9 +108,11 @@ if (!isset($_SESSION['DoctorID'])) {
                                 <div class="number-avatar">
                                     <img src="imgs/Logo.png" alt="Patient's Overview" class="profile-image">
                                 </div>
+                                <a href="patientlist.php">
                                 <div class="number-meta">
                                     <span class="name button-text">Your Patient's Overview</span>
                                 </div>
+                                </a>
                             </div>
                         </button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <button class="profile-button">
