@@ -1,10 +1,16 @@
 {
-    "name": "ranus/computing-group-project",
+    "name": "ramin/computing-group-project",
     "autoload": {
         "psr-4": {
-            "Ranus\\ComputingGroupProject\\": "src/"
+            "Ramin\\ComputingGroupProject\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "KADRDulmin",
+            "email": "115799307+KADRDulmin@users.noreply.github.com"
+        }
+    ],
     "require": {
         "dompdf/dompdf": "^2.0"
     }

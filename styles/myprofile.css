@@ -62,7 +62,7 @@ ul {
 }
 
 a {
-  color: white;
+  color: var(--bali-hai);
   display: block;
   padding: 1em;
   position: relative;
@@ -135,24 +135,6 @@ svg {
   border-bottom-left-radius: 10px;
 }
 
-.sidebar-button {
-  display: flex;
-  align-items: center;
-  color: #FFFFFF;
-  padding: 10px 15px;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-}
-.sidebar-button:hover {
-  transform: scale(1.12);
-}
-
-.sidebar-button .icon {
-  margin-right: 10px;
-}
 .dark .sidebar--admin {
   background-color: #1e1e1f;
   border-top-left-radius: 10px;
@@ -163,6 +145,8 @@ svg {
   background-color: var(--rhino);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .dark .main--team {
@@ -244,10 +228,6 @@ section {
   margin: 0;
 }
 
-.h3sb h3:hover {
-  transform: scale(1.125);
-}
-
 .profile-button {
   display: flex;
   background: none;
@@ -305,68 +285,7 @@ section {
 
 /*MyProfile Page*/
 
-.doctor-description {
-  display: flex;
-  text-align: justify;
-  justify-content: center;
-  height: auto;
-  margin-top: 30px;
-  margin-left: -40px;
-  width: 140%;
-  flex-wrap: wrap;
-  font-size: 15px;
-}
 
-.doctor-contact {
-  display: flex;
-  margin-top: 15px;
-  justify-content: center;
-  font-size: 15px;
-}
-
-.doctor-hospital {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-.doctor-hospital h5 {
-  margin-right: 10px;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.doctor-category {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.doctor-category .category-list{
-  background-color: #231F3A;
-  margin: 0 10px 0 0px;
-  width: 60%;
-  padding: 2px 20px 2px 20px;
-  height: 30%;
-  border-radius: 15px;
-  justify-content: center;
-
-}
-
-.doctor-category .category-list h6 {
-  font-weight: 550;
-  margin-top: 5px;
-  font-size: 12px;
-}
-
-.doctor-category .category-list:hover {
-  background-color: #8b91b3;
-}
-.experience {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
 /* Add mobile responsive styles here */
 @media (max-width: 768px) {
   .sidebar--admin {
