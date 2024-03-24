@@ -93,7 +93,7 @@ if (!$conn) {
                     <h5>Asiri Hospital</h5>
                 </div>
                 <div class="doctor-description">
-                    28 Years Old Doctor with PHD Degree and A Specialist on Mental Disorder
+                    28 Years Old Doctor with PHD Degree and A Specialist on Dermatology
                 </div>
                 <div class="experience">
                     Experience: 20+ Years
