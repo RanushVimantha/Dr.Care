@@ -8,6 +8,15 @@ if (!isset($_SESSION['DoctorID'])) {
     header("Location: login.php");
     exit();
 }
+
+// Linking Database.php
+require "db/DataBase.php";
+$database = new DataBase();
+$conn = $database->dbConnect();
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,15 +35,8 @@ if (!isset($_SESSION['DoctorID'])) {
         body {
             color: white;
         }
-
-        table td,
-        table th {
-            vertical-align: middle;
-            text-align: right;
-            padding: 20px !important;
-            color: white;
-        }
     </style>
+
 </head>
 
 <body>
@@ -46,70 +48,75 @@ if (!isset($_SESSION['DoctorID'])) {
     <div class="container">
         <div class="sidebar sidebar--admin">
             <a href="#" class="sidebar-button">
-                <span class="icon">&#128101;</span> My Patients</a>      
+                <span class="icon">&#128101;</span> My Patients</a>
             <a href="#" class="sidebar-button">
-                <span class="icon">&#128100;</span> My Profile </a>
-            <a href="#" class="sidebar-button">
-                <span class="icon">&#128274;</span> Logout</a>                
+                <span class="icon">&#128100;</span> Edit Profile </a>
+
+
+            <form method="post" action="" style="margin: 50px;">
+                <input type="submit" class="btn btn-primary" name="logout" value="Logout">
+
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
+                    $database = new DataBase();
+                    $database->Logoutbutton();
+                }
+                ?>
+            </form>
+
         </div>
-        
-        <div class="main main--team">          
+
+        <div class="main main--team">
             <section class="Doctor-Details">
-            <?php
-            // Linking Database.php
-            require "db/DataBase.php";
-            $database = new DataBase();
-            $conn = $database->dbConnect();
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
+                <?php
+                // Get the DoctorID from $_SESSION['DoctorID']
+                $doctorID = $_SESSION['DoctorID'];
+                // Showing All the Diagnosis and Medications relavant to the Patient
 
-            // Get the DoctorID from $_SESSION['DoctorID']
-            $doctorID = $_SESSION['DoctorID'];
-            // Showing All the Diagnosis and Medications relavant to the Patient
+                $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+                $result = mysqli_query($conn, $sql);
+                while ($data = mysqli_fetch_array($result)) {
+                ?>
 
-            $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
-            $result = mysqli_query($conn, $sql);
-            while ($data = mysqli_fetch_array($result)) {
-            ?>
-
-                <!-- Profile Image !-->
-                <div class="dpfp">
-                    <img src="imgs/Logo.png" alt="Profile Image">
+                    <!-- Profile Image !-->
+                    <div class="dpfp">
+                        <img src="imgs/Logo.png" alt="Profile Image">
+                    </div>
+                    <!-- End of Profile Image -->
+                    <div class="h3sb">
+                        <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+                    </div>
+                <?php
+                }
+                ?>
+                <div class="doctor-hospital">
+                    <h5>Asiri Hospital</h5>
                 </div>
-                <!-- End of Profile Image -->
-                <div class="h3sb">
-                    <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+                <div class="doctor-description">
+                    28 Years Old Doctor with PHD Degree and A Specialist on Mental Disorder
                 </div>
-            <?php
-            }
-            ?>
-            <div class="doctor-hospital">
-                <h5>Asiri Hospital</h5>
-            </div>
-            <div class="doctor-description">
-                28 Years Old Doctor with PHD Degree and A Specialist on Mental Disorder
-            </div>
-            <div class="experience">
-                Experience: 20+ Years 
-            </div>
-            <div class="doctor-contact">
-                Contact: 0777-222-3333
-            </div>
-
-            <div class="doctor-category">
-                <div class="category-list">
-                    <h6> Esports</h6>
+                <div class="experience">
+                    Experience: 20+ Years
                 </div>
-                <div class="category-list">
-                    <h6> Gaming</h6>
-                </div>
-                <div class="category-list">
-                    <h6> Content</h6>
+                <div class="doctor-contact">
+                    Contact: 0777-222-3333
                 </div>
 
-            </div>
-            
+                <div class="doctor-category">
+                    <div class="category-list">
+                        <h6>
+                            Surgeon
+                        </h6>
+                    </div>
+                    <div class="category-list">
+                        <h6> Paediatrician</h6>
+                    </div>
+                    <div class="category-list">
+                        <h6> Dermatologist</h6>
+                    </div>
+
+                </div>
+
             </section>
 
         </div>
