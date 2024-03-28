@@ -42,25 +42,58 @@ if (!isset($_SESSION['DoctorID'])) {
     <?php include('header.php'); ?>
     <script type="text/javascript" src="js/light-dark.js"></script>
 
-
-
     <div class="container">
 
         <div class="main main--team">
 
                     <section class="prescription-letterhead">
+                    <?php
+                    
+                        // Linking Database.php
+                        require "db/DataBase.php";
+                        $database = new DataBase();
+                        $conn = $database->dbConnect();
+                        if (!$conn) {
+                            die("Connection failed: " . mysqli_connect_error());
+                        }
 
-                        <h2> Medical Prescription </h2>
+                        // Get the DoctorID from $_SESSION['DoctorID']
+                        $doctorID = $_SESSION['DoctorID'];
+                        // Showing All the Diagnosis and Medications relavant to the Patient
 
-                        <div class="letterhead-info">
-                            <div class="doctor-name">
-                                <h4>Dr. Name</h4>
-                            </div>
+                        $sql = "SELECT * FROM Doctors WHERE DoctorID = $doctorID";
+                        $result = mysqli_query($conn, $sql);
+                        while ($data = mysqli_fetch_array($result)) {
+                        ?>
+                        
+                        <div class="letter-head-buttons">
+                            <a class="info-button" href="">
+                                <div class="button button--add">
+                                    Edit Info
+                                </div>
+                             </a>
 
-                            <div class="date">
-                                <h4>Date</h4>
-                            </div>
+                             <a class="delete-button" href="">
+                                <div class="button button--add">
+                                    Delete Profile
+                                </div>
+                             </a>
                         </div>
+
+
+
+                            <!-- Profile Image !-->
+                            <div class="dpfp">
+                                <img src="imgs/Logo.png" alt="Profile Image">
+                            </div>
+                            <!-- End of Profile Image -->
+                            <div class="h3sb">
+                                <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+                            </div>
+                        <?php
+                        }
+                    ?>
+
                     </section>
 
 
@@ -78,40 +111,8 @@ if (!isset($_SESSION['DoctorID'])) {
                     </section>
 
                     <section class="prescription-details">
-                        <div class="prescription-details-box">
-                            <!--  Patient Information -->
-                            <div class="patient">
-                                <div class="patientName">
-                                    <h4>Name</h4>
-                                </div>
-                                <div class="patientName"></div>
-                                <div class="patientAge">
-                                    <h5>Age: age Years</h5>
-                                </div>
-                            </div>
 
-                            
-                                <div class="Meds">
-                                    <div class="MedName">
-                                        <h5>Name</h5>
-                                        <p>Time</p>
-                                    </div>
-                                    <div class="MedName"></div>
-                                    <div class="Meal">
-                                        <h6>Meal</h6>
-                                        <p>Period</p>
-                                    </div>
-                                </div>
-                        </div>
                     </section>
-
-
-            <a class="print-button" href="prescriptionprint.php?id=<?php echo $id; ?>">
-                <div class="button button--add">
-                    Print
-                </div>
-            </a>
-
 
         </div>
     </div>

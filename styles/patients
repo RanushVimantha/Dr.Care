@@ -1,0 +1,309 @@
+
+
+
+.container {
+    box-shadow: rgba(29, 29, 31, 0.25) 0 10px 60px;
+    display: flex;
+    height: auto;
+    max-width: 900px;
+    margin: 2.5em auto;
+    margin-top: 150px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+  
+  }
+  
+  
+  .main {
+    width: 100%;
+    height: auto;
+  
+  
+  }
+  
+  
+  .main--team {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #2C2842;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  section {
+    padding: 1.875em;
+    border-top-right-radius: 10px;
+  
+  }
+  
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .button--add {
+    background: #14BDCB;
+    align-self: center;
+    box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+    color: var(--white);
+    transition: background 0.3s ease;
+    text-align: center;
+    border-radius: 20px;
+    padding: 3px;
+    margin: 15px auto;
+    width: 20%;
+  }
+  
+  .has-top-border {
+    background-color: #433F57;
+    overflow: auto;
+    white-space: nowrap;
+    height: 500px;
+    margin: 20px auto;
+    width: 85%;
+    border-radius: 10px;
+  }
+  
+  /* Prescription Page */
+  .prescription-letterhead {
+    background-color: #433F57;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 200px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .prescription-letterhead h2 {
+    font-size: 32px;
+    font-weight: bolder;
+  
+  }
+  
+  .letterhead-info .doctor-name h4:hover {
+    color: cyan;
+  }
+  
+  .letterhead-info {
+    display: flex;
+    height: 180px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .letterhead-info .doctor-name h4 {
+    font-size: 18px;
+  }
+  
+  .letterhead-info .date h4 {
+    font-size: 18px;
+  }
+  
+  .prescription-details {
+    background-color: #433F57;
+    height: auto;
+    margin: 20px auto;
+    width: 85%;
+    border-radius: 10px;
+  }
+  
+  .prescription-details-box {
+    background-color: white;
+    color: black;
+    padding: 1.2em;
+    height: auto;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Patient Information */
+  
+  .patient {
+    display: flex;
+    width: 100%;
+  }
+  
+  .patientName {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .patientAge {
+    text-align: right;
+    width: 50%;
+    margin: 0;
+  
+  }
+  
+  /* Meds */
+  
+  .Meds {
+    background-color: #5d6091;
+    border-radius: 15px;
+    margin: 10px 0;
+    padding: 1.5em;
+    display: flex;
+    width: 100%;
+  }
+  
+  .MedName {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .Meal {
+    text-align: right;
+    width: 50%;
+    margin: 0;
+  
+  }
+  
+  .info-border {
+    background-color: #433F57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 70px;
+    margin: 20px auto;
+    width: 85%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .info-border .email {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    text-align: center;
+  
+  }
+  
+  .info-border .contact {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    text-align: center;
+    border-radius: 0px;
+  }
+  
+  .info-border .email .h5 {
+    margin-left: -30px;
+  }
+  
+  .divider {
+    background-color: white;
+    width: 0.185rem;
+    height: 2.5rem;
+    margin-right: 30px;
+  }
+  
+  
+  /* Add mobile responsive styles here */
+  @media (max-width: 768px) {
+    .sidebar--admin {
+      display: none;
+    }
+  
+    .main--team {
+      width: 100%;
+      height: auto;
+    }
+  
+    .button-text {
+      color: indigo;
+      font-size: 0.8em;
+    }
+  
+    .info-border {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: auto;
+    }
+  
+    .info-border .divider {
+      display: flex;
+      width: 300px;
+      height: 3px;
+      margin: 0;
+      margin-top: 10px;
+    }
+  
+    .info-border .contact {
+      margin: 0;
+    }
+  
+    .info-border .email {
+      margin-top: 20px;
+  
+    }
+  
+    .prescription-letterhead {
+      height: 220px;
+    }
+  
+    .prescription-letterhead h2 {
+      text-wrap: wrap;
+      font-size: 2rem;
+    }
+  
+    .letterhead-info {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: auto;
+    }
+  
+    .letterhead-info .doctor-name {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: auto;
+    }
+  
+    .letterhead-info .doctor-name h4 {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+  
+    .letterhead-info .date {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: auto;
+    }
+  
+    .button--add {
+      background: #14BDCB;
+      box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+      color: var(--white);
+      transition: background 0.3s ease;
+      text-align: center;
+      border-radius: 20px;
+      padding: 2px;
+      margin: 15px auto;
+      width: 40%;
+    }
+  
+    .button {
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+  
+  }
