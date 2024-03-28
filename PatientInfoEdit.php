@@ -103,7 +103,7 @@ if (!isset($_SESSION['DoctorID'])) {
         <span class="number">
 
           <label for="floatingInput">Phone Number : </label>
-          <input type="tel" id="validationCustom04" name="contactnumber" placeholder="094-778-91-5586" pattern="[0-9]{10}" value="<?php echo $row["ContactNumber"]; ?>" required>
+          <input type="tel" id="validationCustom04" name="contactnumber" placeholder="094-778-91-5586" pattern="[0-9]{10}" value="<?php echo $row["ContactNumber"]; ?>" minlength="10" maxlength="10" required>
           <div class="invalid-feedback"> Enter the Phone Number in this format ( 0778915586 )</div>
         </span>
 

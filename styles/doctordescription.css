@@ -1,0 +1,100 @@
+*{ 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.detail-container{
+
+    position: relative;
+    width: 50%;
+    background:#2C2842 ;
+    padding: 25px;
+    border-radius:8px;
+    box-shadow:white;
+}
+.detail-container header{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
+.detail-container .form{
+    margin-top: 30px;
+}
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+.input-box label{
+    color: white;
+}
+.form .input-box input{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color:rgb(53, 53, 53);
+    margin-top: 8px;
+    border:1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px; 
+}
+.form .gender-box{
+    margin-top: 20px;
+    color: white;
+
+}
+.form :where(.gender-option, .gender){
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+    color: white;
+}
+.form .gender{
+    column-gap: 5px;
+}
+.form :where(.gender input, .gender label){
+    cursor:pointer;
+}
+
+.imageInput .input[type="file"] {
+    /* Hide the default file input button */
+    display: none;
+    
+}
+
+.img-button{
+    height: 50px;
+    width: 200px;
+    margin-top: 20px;
+    color: white;
+    
+}
+.form button{
+    height: 55px;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    border:none ;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 400;
+    background:gray ;
+
+}
+.form button:hover{
+    background-color:black;
+
+}
+/*Responsive*/
+@media screen and (max-width:500px){
+    .form .column{
+        flex-wrap:wrap;
+    }
+    .form :where(.gender-option, .gender){
+       row-gap: 15px; 
+}
+}
+

@@ -17,7 +17,7 @@ if(isset($_GET['query'])) {
             OR FirstName LIKE '%$search%' AND LastName LIKE '%$search%'
             OR PatientID = '$search' 
             OR ContactNumber LIKE '$search' 
-            OR Email LIKE '%$search%'";
+            OR Email LIKE '$search'";
     
     $result = mysqli_query($conn, $sql);
 

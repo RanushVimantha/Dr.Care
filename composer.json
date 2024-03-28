@@ -5,12 +5,6 @@
             "Ramin\\ComputingGroupProject\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "KADRDulmin",
-            "email": "115799307+KADRDulmin@users.noreply.github.com"
-        }
-    ],
     "require": {
         "dompdf/dompdf": "^2.0"
     }

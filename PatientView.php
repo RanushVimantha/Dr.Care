@@ -6,6 +6,18 @@ if (!isset($_SESSION['DoctorID'])) {
     header("Location: login.php");
     exit();
 }
+// Linking Database.php
+require "db/DataBase.php";
+$database = new DataBase();
+$conn = $database->dbConnect();
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$id = $_GET['id'];
+if ($id) {
+    $sql = "SELECT * FROM Patients WHERE PatientID = $id";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result)) {
 ?>
 
 <!DOCTYPE html>
@@ -32,24 +44,12 @@ if (!isset($_SESSION['DoctorID'])) {
         <header class="d-flex justify-content-between my-4">
             <h1>Patient Details</h1>
             <div>
+                <a href="AddRecord.php?id=<?php echo $id; ?>" class="btn btn-warning">Add New Record</a>
                 <a href="index.php" class="btn btn-primary">Back</a>
+
             </div>
         </header>
         <div class="book-details p-5 my-4">
-            <?php
-            // Linking Database.php
-            require "db/DataBase.php";
-            $database = new DataBase();
-            $conn = $database->dbConnect();
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            $id = $_GET['id'];
-            if ($id) {
-                $sql = "SELECT * FROM Patients WHERE PatientID = $id";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_array($result)) {
-            ?>
                     <h3>First Name:</h3>
                     <p><?php echo $row["FirstName"]; ?></p>
                     <h3>Last Name:</h3>
