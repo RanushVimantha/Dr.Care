@@ -11,11 +11,12 @@
 }
 
 .detail-container {
-    display: flex;
+    
     justify-content: space-between;
     background: #2C2842;
     flex-wrap: wrap;
     padding: 55px;
+    margin-left: 100px;
     border-radius: 8px;
     box-shadow: white;
 }
@@ -130,5 +131,10 @@
     }
     .button1 {
         width: 100%;
-      }
+    }
+
+    .detail-container {
+        width: 300%;
+        margin-left: -40px;
+    }
 }

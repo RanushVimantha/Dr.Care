@@ -178,7 +178,7 @@ if (isset($_POST['print_pdf'])) {
 
             <a class="print-button" href="prescriptionprint.php?id=<?php echo $id; ?>">
                 <div class="button button--add">
-                    Print
+                    <h6>Print</h6>
                 </div>
             </a>
 

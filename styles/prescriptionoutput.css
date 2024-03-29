@@ -47,6 +47,7 @@ a {
 
 .button--add {
   background: #14BDCB;
+  justify-content: center;
   align-self: center;
   box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
   color: var(--white);
@@ -56,6 +57,46 @@ a {
   padding: 5px 100% 10px 20px;
   margin: 15px auto;
   width: 20%;
+}
+
+.button--add h6{
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.button--add2 {
+  background: #14BDCB;
+  justify-content: center;
+  align-self: center;
+  box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+  color: var(--white);
+  transition: background 0.3s ease;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px 100% 5px 20px;
+  margin: 15px auto;
+  width: 20%;
+}
+
+.button--add3 {
+  background: red;
+  justify-content: center;
+  align-self: center;
+  box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+  color: var(--white);
+  transition: background 0.3s ease;
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px 100% 5px 20px;
+  margin: 15px auto;
+  width: 20%;
+}
+
+.button--add2 h6 {
+  margin-top: 5px;
+}
+.button--add3 h6{
+  margin-top: 5px;
 }
 
 .has-top-border {
@@ -133,6 +174,7 @@ a {
 
 .prescription-details {
   background-color: #433F57;
+  overflow: auto;
   height: auto;
   margin: 20px auto;
   width: 85%;
@@ -207,6 +249,26 @@ a {
   border-bottom-right-radius: 10px;
 }
 
+.add-record {
+  background-color: #14BDCB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 70px;
+  margin: 20px auto;
+  width: 85%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.add-record .add-record-button h5:hover{
+  transform: scale(1.12);
+}
+
 .info-border .email {
   flex: 1;
   margin: 0;
@@ -234,6 +296,16 @@ a {
   width: 0.185rem;
   height: 2.5rem;
   margin-right: 30px;
+}
+
+.patient-container {
+  max-width: 800px;
+  color: #433F57;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -324,6 +396,50 @@ a {
     margin: 15px auto;
     width: 40%;
   }
+
+  .button--add2 {
+    background: #14BDCB;
+    justify-content: center;
+    box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+    color: var(--white);
+    transition: background 0.3s ease;
+    text-align: center;
+    border-radius: 20px;
+    padding: 2px 2px 2px 5px;
+    margin: 15px;
+    margin-top: -10px;
+    margin-left: 50px;
+    width: 100%;
+  }
+
+  .button--add2 h6 {
+    size: 2px;
+  }
+
+  .button--add3 {
+    background: red;
+    box-shadow: rgba(29, 29, 31, 0.2) 0 10px 60px;
+    color: var(--white);
+    transition: background 0.3s ease;
+    text-align: center;
+    border-radius: 20px;
+    padding: 2px 2px 2px 5px;
+    margin: 15px;
+    margin-top: -10px;
+    margin-left: -50px;
+    width: 100%;
+  }
+
+  .dpfp img {
+    justify-content: center;
+    align-items: center;
+    margin-top: -2px;
+    margin-left: 15px;
+    width: 20%;
+    height: 20%;
+    border-radius: 100%;
+  }
+  
 
   .button {
     justify-content: center;
