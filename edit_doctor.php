@@ -35,7 +35,7 @@ if (!$conn) {
     <div class="container">
         <div class="detail-container">
             <h1>Doctor Details</h1>
-            <form action="edit_doctor_process.php" class="form" method="post">
+            <form action="edit_doctor_process.php" class="form" method="post" enctype="multipart/form-data">
                 <div class="input-box">
                     <label>First Name* :</label>
                     <input type="text" name="firstname" placeholder="Enter First Name" />

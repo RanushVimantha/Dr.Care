@@ -67,11 +67,10 @@ if (!$conn) {
         </div>
 
         <div class="main main--team">
-            <section class="Doctor-Details">
-            <?php
+        <?php
                 if (isset($_SESSION["add"])) {
                 ?>
-                    <div class="alert alert-success">
+                    <div class="alert alert-success" style="display: flex; width: 90%; margin: 25px; align-items: center; justify-content: center;">
                         <?php
                         echo $_SESSION["add"];
                         ?>
@@ -80,6 +79,7 @@ if (!$conn) {
                     unset($_SESSION["add"]);
                 }
                 ?>
+            <section class="Doctor-Details">
                 <?php
                 // Get the DoctorID from $_SESSION['DoctorID']
                 $doctorID = $_SESSION['DoctorID'];
