@@ -54,7 +54,7 @@ if (!$conn) {
 
 
             <form method="post" action="" style="margin: 50px;">
-                <input type="submit" class="btn btn-primary" name="logout" value="Logout">
+                <input type="submit" class="button button--add" name="logout" value="Logout">
 
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
