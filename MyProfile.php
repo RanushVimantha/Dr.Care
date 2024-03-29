@@ -49,7 +49,7 @@ if (!$conn) {
         <div class="sidebar sidebar--admin">
             <a href="#" class="sidebar-button">
                 <span class="icon">&#128101;</span> My Patients</a>
-            <a href="#" class="sidebar-button">
+            <a href="edit_doctor.php" class="sidebar-button">
                 <span class="icon">&#128100;</span> Edit Profile </a>
 
 
@@ -68,6 +68,18 @@ if (!$conn) {
 
         <div class="main main--team">
             <section class="Doctor-Details">
+            <?php
+                if (isset($_SESSION["add"])) {
+                ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION["add"];
+                        ?>
+                    </div>
+                <?php
+                    unset($_SESSION["add"]);
+                }
+                ?>
                 <?php
                 // Get the DoctorID from $_SESSION['DoctorID']
                 $doctorID = $_SESSION['DoctorID'];
