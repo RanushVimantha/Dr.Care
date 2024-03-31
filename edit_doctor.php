@@ -45,11 +45,9 @@ if (!$conn) {
                     <input type="text" name="lastname" placeholder="Enter Last Name" />
                 </div>
 
-                <div class="img-button">
-                    <label for="imageInput">Select your profile pricture:</label>
-                    <div class="img-option">
-                        <input type="file" id="imageInput" name="imageInput" accept="image/*">
-                    </div>
+                <div class="input-box">
+                <label>Profile Photo Link* :</label>
+                    <input type="text" name="profile_photo" placeholder="Paste the image link here" />
                 </div>
 
                 <div class="gender-box">
@@ -104,7 +102,7 @@ if (!$conn) {
                 </div>
 
                 <div class="">
-                    <input type="submit" name="add" value="Add Patient" class="button1">
+                    <input type="submit" name="add" value="Update Details" class="button1">
                 </div>
             </form>
 

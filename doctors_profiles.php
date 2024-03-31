@@ -52,7 +52,7 @@ if (!isset($_SESSION['DoctorID'])) {
             <!-- New Card -->
             <div class="card">
                 <div class="imgBx">
-                    <img src="imgs/Logo.png" alt="Doctor-Image">
+                    <img src="<?php echo $data['profile_photo']; ?>" alt="Doctor-Image" style="border-radius: 50%; height: auto; width: 150px; vertical-align: middle;">
                 </div>
 
                 <div class="contentBx">
@@ -68,10 +68,10 @@ if (!isset($_SESSION['DoctorID'])) {
                     <div class="spec">
 
                         <h3>Hospital :</h3>
-                        <span>Ragama District</span>
+                        <span><?php echo $data['Hospital']; ?></span>
 
                     </div>
-                    <a href="#">View Patitents</a>
+                    <a href="#" style="display: none;">View Patitents</a>
                 </div>
             </div>
         <?php

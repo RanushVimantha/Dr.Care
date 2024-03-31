@@ -47,9 +47,9 @@ if (!$conn) {
 
     <div class="container">
         <div class="sidebar sidebar--admin">
-            <a href="#" class="sidebar-button">
+            <a href="patientlist.php" class="button button--add2">
                 <span class="icon">&#128101;</span> My Patients</a>
-            <a href="edit_doctor.php" class="sidebar-button">
+            <a href="edit_doctor.php" class="button button--add3">
                 <span class="icon">&#128100;</span> Edit Profile </a>
 
 
@@ -67,18 +67,18 @@ if (!$conn) {
         </div>
 
         <div class="main main--team">
-        <?php
-                if (isset($_SESSION["add"])) {
-                ?>
-                    <div class="alert alert-success" style="display: flex; width: 90%; margin: 25px; align-items: center; justify-content: center;">
-                        <?php
-                        echo $_SESSION["add"];
-                        ?>
-                    </div>
-                <?php
-                    unset($_SESSION["add"]);
-                }
-                ?>
+            <?php
+            if (isset($_SESSION["add"])) {
+            ?>
+                <div class="alert alert-success" style="display: flex; width: 90%; margin: 25px; align-items: center; justify-content: center;">
+                    <?php
+                    echo $_SESSION["add"];
+                    ?>
+                </div>
+            <?php
+                unset($_SESSION["add"]);
+            }
+            ?>
             <section class="Doctor-Details">
                 <?php
                 // Get the DoctorID from $_SESSION['DoctorID']
@@ -92,48 +92,48 @@ if (!$conn) {
 
                     <!-- Profile Image !-->
                     <div class="dpfp">
-                        <img src="imgs/Logo.png" alt="Profile Image">
+                        <img src="<?php echo $data['profile_photo']; ?>" alt="Profile Image" style="border-radius: 50%; height: auto; width: 150px; vertical-align: middle;">
                     </div>
                     <!-- End of Profile Image -->
                     <div class="h3sb">
                         <h3>Dr. <?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
                     </div>
-                <?php
-                }
-                ?>
-                <div class="doctor-hospital">
-                    <h5>Asiri Hospital</h5>
-                </div>
-                <div class="doctor-description">
-                    28 Years Old Doctor with PHD Degree and A Specialist on Dermatology
-                </div>
-                <div class="experience">
-                    Experience: 20+ Years
-                </div>
-                <div class="doctor-contact">
-                    Contact: 0777-222-3333
-                </div>
-
-                <div class="doctor-category">
-                    <div class="category-list">
-                        <h6>
-                            Surgeon
-                        </h6>
+                    <div class="doctor-hospital">
+                        <h5><?php echo $data['Hospital']; ?></h5>
                     </div>
-                    <div class="category-list">
-                        <h6> Paediatrician</h6>
+                    <div class="doctor-description">
+                        <?php echo $data['description']; ?>
                     </div>
-                    <div class="category-list">
-                        <h6> Dermatologist</h6>
+                    <div class="experience">
+                        Experience: <?php echo $data['Experience']; ?>
+                    </div>
+                    <div class="doctor-contact">
+                        Contact: <?php echo $data['Contact']; ?>
                     </div>
 
-                </div>
+                    <div class="doctor-category">
+                        <div class="category-list">
+                            <h6>
+                                <?php echo $data['Specialization']; ?>
+                            </h6>
+                        </div>
+                        <div class="category-list">
+                            <h6><?php echo $data['specialization2']; ?></h6>
+                        </div>
+                        <div class="category-list">
+                            <h6><?php echo $data['specialization3']; ?></h6>
+                        </div>
+
+                    </div>
 
             </section>
 
         </div>
     </div>
-    <?php include('footer.php'); ?>
+<?php
+}
+?>
+<?php include('footer.php'); ?>
 </body>
 
 </html>
