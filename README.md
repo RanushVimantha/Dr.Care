@@ -27,7 +27,6 @@ Key Features and Functions of the project is listed below.
 
 - Doctor Profile 
 - Patient Profile Creation 
-- RFID Card System 
 - Records Add / Remove Function 
 - Health Status of the Patient 
 - Prescription System 
