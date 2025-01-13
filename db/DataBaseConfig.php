@@ -12,7 +12,7 @@ class DataBaseConfig
 
         $this->servername = 'localhost';
         $this->username = 'root';
-        $this->password = 'mysql';
+        $this->password = '';
         $this->databasename = 'drcare';
 
     }
